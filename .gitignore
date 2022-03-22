@@ -33,6 +33,7 @@
 
 
 #Folders
+.vs/
 bin/
 int/
 
