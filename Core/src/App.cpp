@@ -14,9 +14,8 @@ App::~App()
 
 void App::Run()
 {
-	while (true)
+	while (m_Running)
 	{
-		glfwPollEvents();
-		glfwSwapBuffers(m_window->getGLFWwindow());
+		m_window->Update();
 	}
 }

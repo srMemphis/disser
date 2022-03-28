@@ -2,8 +2,6 @@
 
 #include "Window.h"
 
-
-
 class App
 {
 public:
@@ -15,5 +13,6 @@ public:
 private:
 
 	Window* m_window;
+	bool m_Running = true;
 
 };
