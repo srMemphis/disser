@@ -5,5 +5,5 @@ namespace Core
 {
 
 	void hello();
-
+	void GLFWhello();
 }

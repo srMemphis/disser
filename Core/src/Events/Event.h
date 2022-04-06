@@ -11,7 +11,8 @@ enum class EventType
 class Event
 {
 public:
-	virtual EventType GetType() = 0;
+	virtual ~Event() {}
+	virtual EventType GetType() { return EventType::None; };
 protected:
 	bool m_Handled = false;
 };

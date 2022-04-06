@@ -11,13 +11,13 @@ public:
 class WindowResizeEvent : public Event
 {
 public:
-	WindowResizeEvent(int width, int hight)
-		: m_Width(width), m_Hight(hight) {}
+	WindowResizeEvent(int width, int height)
+		: m_Width(width), m_Height(height) {}
 
-	EventType GetType() { return EventType::WindowResize; }
+	EventType GetType() override { return EventType::WindowResize; }
 	int GetWidth() const { return m_Width; }
-	int GetHight() const { return m_Hight; }
+	int GetHight() const { return m_Height; }
 
 private:
-	int m_Width, m_Hight;
+	int m_Width, m_Height;
 };

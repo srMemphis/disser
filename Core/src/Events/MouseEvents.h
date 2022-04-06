@@ -31,27 +31,27 @@ public:
 class MouseScrollEvent : public Event
 {
 public:
-	MouseScrollEvent(float xoffset, float yoffset)
+	MouseScrollEvent(double xoffset, double yoffset)
 		: m_XOffset(xoffset), m_YOffset(yoffset) {}
 
 	EventType GetType() override { return EventType::MouseScroll; }
-	float GetXOffset() const { return m_XOffset; }
-	float GetYOffset() const { return m_YOffset; }
+	double GetXOffset() const { return m_XOffset; }
+	double GetYOffset() const { return m_YOffset; }
 
 private:
-	float m_XOffset, m_YOffset;
+	double m_XOffset, m_YOffset;
 };
 
 class MouseMoveEvent : public Event
 {
 public:
-	MouseMoveEvent(float posx, float posy)
+	MouseMoveEvent(double posx, double posy)
 		: m_PosX(posx), m_PosY(posy) {}
 
 	EventType GetType() override { return EventType::MouseMove; }
-	float GetPosX() const { return m_PosX; }
-	float GetPosY() const { return m_PosY; }
+	double GetPosX() const { return m_PosX; }
+	double GetPosY() const { return m_PosY; }
 
 private:
-	float m_PosX, m_PosY;
+	double m_PosX, m_PosY;
 };
