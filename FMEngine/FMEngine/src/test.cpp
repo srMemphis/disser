@@ -1,10 +1,10 @@
 #include <iostream>
-#include "test.h"
-#include "App.h"
+#include "src/test.h"
+#include "src/Core/App.h"
 
-#include <glad/glad.h>
+#include "external/glad/include/glad/glad.h"
 #define GLFW_INCLUDE_NONE
-#include <GLFW/glfw3.h>
+#include "external/GLFW/include/GLFW/glfw3.h"
 
 
 #include <stdlib.h>
@@ -13,7 +13,7 @@
 
 
 
-namespace Core
+namespace FMEngine
 {
 
 

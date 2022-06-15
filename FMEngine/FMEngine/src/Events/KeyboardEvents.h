@@ -1,6 +1,7 @@
 #pragma once
-#include "Event.h"
+#include "src/Events/Event.h"
 
+// Base class
 class KeyEvent: public Event
 {
 public:
@@ -10,6 +11,7 @@ protected:
 	int m_KeyCode;
 };
  
+// Key pressed
 class KeyPressEvent : public KeyEvent
 {
 public:
@@ -17,13 +19,10 @@ public:
 	EventType GetType() override { return EventType::KeyPress; }
 };
 
+// Key released
 class KeyReleaseEvent : public KeyEvent
 {
 public:
 	KeyReleaseEvent(int keyCode) : KeyEvent(keyCode) {}
 	EventType GetType() override { return EventType::KeyRelease; }
 };
-
-
-
-

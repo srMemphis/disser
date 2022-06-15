@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -24,7 +24,7 @@
     <ProjectGuid>{5e1c4964-179f-44b9-8117-86e7ede053b2}</ProjectGuid>
     <RootNamespace>core</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>Core</ProjectName>
+    <ProjectName>FMEngine</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -121,7 +121,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>external/glad/include; external/GLFW/include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>FMEngine\external\GLFW\include;FMEngine\external\glad\include;FMEngine\external\imgui;FMEngine</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -129,7 +129,7 @@
     </Link>
     <Lib>
       <AdditionalDependencies>opengl32.lib;glfw3.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>external/GLFW/lib-vc2022</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>FMEngine/external/GLFW/lib-vc2022</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -140,7 +140,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>external/glad/include; external/GLFW/include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>FMEngine\external\GLFW\include;FMEngine\external\glad\include;FMEngine\external\imgui;FMEngine</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -150,32 +150,54 @@
     </Link>
     <Lib>
       <AdditionalDependencies>opengl32.lib;glfw3.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>external/GLFW/lib-vc2022</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>FMEngine/external/GLFW/lib-vc2022</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\Events\Event.h" />
-    <ClInclude Include="src\App.h" />
-    <ClInclude Include="Core.h" />
-    <ClInclude Include="external\glad\include\glad\glad.h" />
-    <ClInclude Include="external\glad\include\KHR\khrplatform.h" />
+    <ClInclude Include="FMEngine\external\imgui\backends\imgui_impl_glfw.h" />
+    <ClInclude Include="FMEngine\external\imgui\backends\imgui_impl_opengl3.h" />
+    <ClInclude Include="FMEngine\external\imgui\backends\imgui_impl_opengl3_loader.h" />
+    <ClInclude Include="FMEngine\external\imgui\imconfig.h" />
+    <ClInclude Include="FMEngine\external\imgui\imgui.h" />
+    <ClInclude Include="FMEngine\external\imgui\imgui_internal.h" />
+    <ClInclude Include="FMEngine\external\imgui\imstb_rectpack.h" />
+    <ClInclude Include="FMEngine\external\imgui\imstb_textedit.h" />
+    <ClInclude Include="FMEngine\external\imgui\imstb_truetype.h" />
+    <ClInclude Include="FMEngine\src\Core\Component.h" />
+    <ClInclude Include="FMEngine\src\Core\ComponentList.h" />
+    <ClInclude Include="FMEngine\FMEgui.h" />
+    <ClInclude Include="FMEngine\src\GUI\GUI.h" />
+    <ClInclude Include="FMEngine\src\Events\Event.h" />
+    <ClInclude Include="FMEngine\src\Core\App.h" />
+    <ClInclude Include="FMEngine\FMEngine.h" />
+    <ClInclude Include="FMEngine\external\glad\include\glad\glad.h" />
+    <ClInclude Include="FMEngine\external\glad\include\KHR\khrplatform.h" />
     <ClInclude Include="src\Events\EventListener.h" />
-    <ClInclude Include="src\Events\EventManager.h" />
-    <ClInclude Include="src\Events\MouseEvents.h" />
-    <ClInclude Include="src\Events\WindowEvents.h" />
-    <ClInclude Include="src\Render\Renderer.h" />
-    <ClInclude Include="src\test.h" />
-    <ClInclude Include="src\Window.h" />
+    <ClInclude Include="FMEngine\src\Events\EventManager.h" />
+    <ClInclude Include="FMEngine\src\Events\MouseEvents.h" />
+    <ClInclude Include="FMEngine\src\Events\WindowEvents.h" />
+    <ClInclude Include="FMEngine\src\GUI\GUIinterface.h" />
+    <ClInclude Include="FMEngine\src\Render\Renderer.h" />
+    <ClInclude Include="FMEngine\src\test.h" />
+    <ClInclude Include="FMEngine\src\Core\Window.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Events\EventManager.cpp" />
-    <ClCompile Include="src\Events\EventSystemQA.h" />
-    <ClCompile Include="src\Events\KeyboardEvents.h" />
-    <ClCompile Include="src\App.cpp" />
-    <ClCompile Include="external\glad\src\glad.c" />
-    <ClCompile Include="src\Render\Renderer.cpp" />
-    <ClCompile Include="src\test.cpp" />
-    <ClCompile Include="src\Window.cpp" />
+    <ClCompile Include="FMEngine\external\imgui\backends\imgui_impl_glfw.cpp" />
+    <ClCompile Include="FMEngine\external\imgui\backends\imgui_impl_opengl3.cpp" />
+    <ClCompile Include="FMEngine\external\imgui\imgui.cpp" />
+    <ClCompile Include="FMEngine\external\imgui\imgui_demo.cpp" />
+    <ClCompile Include="FMEngine\external\imgui\imgui_draw.cpp" />
+    <ClCompile Include="FMEngine\external\imgui\imgui_tables.cpp" />
+    <ClCompile Include="FMEngine\external\imgui\imgui_widgets.cpp" />
+    <ClCompile Include="FMEngine\src\Core\Component.cpp" />
+    <ClCompile Include="FMEngine\src\GUI\GUI.cpp" />
+    <ClCompile Include="FMEngine\src\Events\EventManager.cpp" />
+    <ClCompile Include="FMEngine\src\Events\KeyboardEvents.h" />
+    <ClCompile Include="FMEngine\src\Core\App.cpp" />
+    <ClCompile Include="FMEngine\external\glad\src\glad.c" />
+    <ClCompile Include="FMEngine\src\Render\Renderer.cpp" />
+    <ClCompile Include="FMEngine\src\test.cpp" />
+    <ClCompile Include="FMEngine\src\Core\Window.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

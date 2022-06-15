@@ -1,6 +1,7 @@
 #pragma once
-#include "Event.h"
+#include "src/Events/Event.h"
 
+//base class
 class MouseButtonEvent : public Event
 {
 public:
@@ -12,6 +13,7 @@ protected:
 	int m_Button;
 };
 
+// Mouse psressed
 class MousePressEvent : public MouseButtonEvent
 {
 public:
@@ -20,6 +22,7 @@ public:
 	EventType GetType() override { return EventType::MousePress; }
 };
 
+// Mouse released
 class MouseReleaseEvent : public MouseButtonEvent
 {
 public:
@@ -28,6 +31,7 @@ public:
 	EventType GetType() override { return EventType::MouseRelease; }
 };
 
+// Mouse scrolled
 class MouseScrollEvent : public Event
 {
 public:
@@ -42,6 +46,7 @@ private:
 	double m_XOffset, m_YOffset;
 };
 
+// Mouse moved
 class MouseMoveEvent : public Event
 {
 public:

@@ -1,16 +1,16 @@
-#include "Window.h"
+#include "src/Core/Window.h"
 
 #include <iostream>
 #include <memory>
 #include <functional>
 
-#include "glad/glad.h"
-#include "GLFW/glfw3.h"
+#include "external/glad/include/glad/glad.h"
+#include "external/GLFW/include/GLFW/glfw3.h"
 
-#include "Events/EventManager.h"
-#include "Events/WindowEvents.h"
-#include "Events/MouseEvents.h"
-#include "Events/KeyboardEvents.h"
+#include "src/Events/EventManager.h"
+#include "src/Events/WindowEvents.h"
+#include "src/Events/MouseEvents.h"
+#include "src/Events/KeyboardEvents.h"
 
 bool Window::GLFWisInit = false;
 bool Window::GladisInit = false;
@@ -31,7 +31,6 @@ Window::Window()
 	// Dark blue background
 	glClearColor(1.0f, 0.0f, 0.4f, 0.0f);
 
-
 	SetupEventListeners();
 }
 
@@ -47,10 +46,10 @@ Window::~Window()
 void Window::Update()
 {
 	glfwPollEvents();
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glfwSwapBuffers(m_GLFWwindow);
-}
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
+}
 
 bool Window::InitGLFW()
 {
@@ -62,11 +61,11 @@ bool Window::InitGLFW()
 	}
 
 	// GLWF hints
-	//glfwWindowHint(GLFW_SAMPLES, 4); // 4x antialiasing
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3); // We want OpenGL 3.3
+	//glfwWindowHint(GLFW_SAMPLES, 4);								// 4x antialiasing
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);					// We want OpenGL 3.3
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-	//glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE); // To make MacOS happy; should not be needed
-	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE); // We don't want the old OpenGL
+	//glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);			// To make MacOS happy; should not be needed
+	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);  // We don't want the old OpenGL
 	glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE);
 
 	return true;
@@ -143,6 +142,7 @@ bool Window::Create()
 			EventManager::GetInstance().PushEvent(new WindowResizeEvent(width, height));
 		});
 
+	std::cout << "GOOD POINTER! " << m_GLFWwindow << std::endl;
 	return true;
 }
 
@@ -151,7 +151,6 @@ void Window::SetupEventListeners()
 	std::shared_ptr<EventListener> OnResizeListener = std::make_shared<EventListener>(std::bind(&Window::OnWindowResize, this, std::placeholders::_1));
 	EventManager::GetInstance().AddListener(EventType::WindowResize, OnResizeListener);
 }
-
 
 void Window::OnWindowResize(Event& event)
 {

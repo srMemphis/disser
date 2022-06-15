@@ -1,11 +1,11 @@
-#include <Core.h>
+#include "App/MyApp.h"
 
 int main()
 {
 	//Core::hello();
 	//Core::GLFWhello();
 
-	App myApp;
+	MyApp myApp;
 	myApp.Run();
 
 	return 0;

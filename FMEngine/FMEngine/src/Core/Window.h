@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
-#include "Events/EventManager.h"
-#include "Events/WindowEvents.h"
+#include "src/Events/EventManager.h"
+#include "src/Events/WindowEvents.h"
 struct GLFWwindow;
 
 class Window
@@ -14,6 +14,8 @@ public:
 
 	void Update();
 	GLFWwindow* getGLFWwindow() { return m_GLFWwindow; };
+	int GetWidth() { return m_Width; }
+	int GetHight() { return m_Hight; }
 
 private:
 	// window data
