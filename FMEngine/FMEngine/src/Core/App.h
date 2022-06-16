@@ -26,6 +26,9 @@ protected:
 	bool m_Running = true;	                                     // running flag
 	EventManager& m_EventManager = EventManager::GetInstance();  // event
 	ComponentList m_ComponentList;	                             // app components
+	
+	virtual void OnWindowClose(Event& event);
+
 
 private:
 	static App* s_Instance;

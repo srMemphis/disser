@@ -142,7 +142,6 @@ bool Window::Create()
 			EventManager::GetInstance().PushEvent(new WindowResizeEvent(width, height));
 		});
 
-	std::cout << "GOOD POINTER! " << m_GLFWwindow << std::endl;
 	return true;
 }
 

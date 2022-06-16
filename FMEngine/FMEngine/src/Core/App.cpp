@@ -8,16 +8,20 @@ App* App::s_Instance = nullptr;
 
 App::App()
 {
+	// There should be only one App
 	if (s_Instance)
 	{
 		std::cerr << "ERROR: Application already exists!\n";
 		std::terminate();
 	}
-
 	s_Instance = this;
 
 	m_window = new Window();
 	m_gui.Init();
+
+	// setup Window close event listener
+	std::shared_ptr<EventListener> OnWindowCloseListener = std::make_shared<EventListener>(std::bind(&App::OnWindowClose, this, std::placeholders::_1));
+	m_EventManager.AddListener(EventType::WindowClose, OnWindowCloseListener);
 }
 
 App::~App()
@@ -49,4 +53,9 @@ void App::Run()
 		m_window->Update();
 
 	}
+}
+
+void App::OnWindowClose(Event& event)
+{
+	m_Running = false;
 }

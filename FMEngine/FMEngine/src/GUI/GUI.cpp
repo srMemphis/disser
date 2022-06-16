@@ -38,7 +38,6 @@ void GUI::Init()
 
     // Setup Platform/Renderer backends
     auto window = App::GetInstance().GetWindow()->getGLFWwindow();
-    std::cout << "WRONG POINTER!" << window << std::endl;
     ImGui_ImplGlfw_InitForOpenGL(window, true);
     ImGui_ImplOpenGL3_Init("#version 330");
 }
