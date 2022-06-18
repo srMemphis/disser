@@ -4,7 +4,7 @@
 #include <memory>
 #include <functional>
 
-#include "external/glad/include/glad/glad.h"
+#include "src/Render/OpenGL/OpenGLContext.h"
 #include "external/GLFW/include/GLFW/glfw3.h"
 
 #include "src/Events/EventManager.h"
@@ -12,90 +12,68 @@
 #include "src/Events/MouseEvents.h"
 #include "src/Events/KeyboardEvents.h"
 
-bool Window::GLFWisInit = false;
-bool Window::GladisInit = false;
 
 Window::Window()
 {
-	// init GLFW
-	if (!GLFWisInit)
-		GLFWisInit = InitGLFW();
-
 	// Create Window
+	InitGLFW();
 	Create();
 
-	// Init Glad
-	if(!GladisInit)
-		GladisInit = InitGlad();
+	// init Glad and make context current
+	m_Context = new OpenGLContext(m_GLFWwindow);
+	m_Context->Init();
 
-	// Dark blue background
-	glClearColor(1.0f, 0.0f, 0.4f, 0.0f);
-
+	// Set event callback functions
+	SetGLFWCallback();
 	SetupEventListeners();
 }
 
 Window::Window(const char* title, int width, int hight, bool vsync)
+	:m_Title(title), m_Width(width), m_Hight(hight), m_VSync(vsync)
 {
+	// Create Window
+	InitGLFW();
+	Create();
+
+	// init Glad and make context current
+	m_Context = new OpenGLContext(m_GLFWwindow);
+	m_Context->Init();
+
+	SetGLFWCallback();
+	SetupEventListeners();
 }
 
 Window::~Window()
 {
+	// deletes m_GLFWwindow
 	glfwTerminate();
 }
 
 void Window::Update()
 {
 	glfwPollEvents();
-	glfwSwapBuffers(m_GLFWwindow);
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
+	m_Context->SwapBuffers();
 }
 
-bool Window::InitGLFW()
+void Window::InitGLFW()
 {
 	// Initialise GLFW
 	if (!glfwInit())
 	{
 		fprintf(stderr, "Failed to initialize GLFW\n");
-		return false;
 	}
-
-	// GLWF hints
-	//glfwWindowHint(GLFW_SAMPLES, 4);								// 4x antialiasing
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);					// We want OpenGL 3.3
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-	//glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);			// To make MacOS happy; should not be needed
-	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);  // We don't want the old OpenGL
-	glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE);
-
-	return true;
 }
 
-bool Window::InitGlad()
+void Window::Create()
 {
-	// Iinitialize glad
-	if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
-	{
-		fprintf(stderr, "Failed to initialize glad\n");
-		glfwTerminate();
-		return false;
-	}
-
-	return true;
-}
-
-bool Window::Create()
-{
-
 	m_GLFWwindow = glfwCreateWindow(m_Width, m_Hight, m_Title.c_str(), NULL, NULL);
 	if (m_GLFWwindow == NULL) {
 		fprintf(stderr, "Failed to open GLFW window\n");
-		glfwTerminate();
-		return false;
 	}
-	glfwMakeContextCurrent(m_GLFWwindow);
+}
 
-
+void Window::SetGLFWCallback()
+{
 	// seting up GLFW callback function. input events generation
 
 	glfwSetKeyCallback(m_GLFWwindow, [](GLFWwindow* window, int key, int scancode, int action, int mods)
@@ -142,7 +120,6 @@ bool Window::Create()
 			EventManager::GetInstance().PushEvent(new WindowResizeEvent(width, height));
 		});
 
-	return true;
 }
 
 void Window::SetupEventListeners()

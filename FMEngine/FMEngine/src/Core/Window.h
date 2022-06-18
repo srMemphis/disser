@@ -2,7 +2,9 @@
 #include <string>
 #include "src/Events/EventManager.h"
 #include "src/Events/WindowEvents.h"
+
 struct GLFWwindow;
+class OpenGLContext;
 
 class Window
 {
@@ -23,16 +25,15 @@ private:
 	int m_Hight = 720;
 	std::string m_Title{ "Window" };
 	bool m_VSync = true;
+
 	GLFWwindow* m_GLFWwindow;
-	
+	OpenGLContext* m_Context;
+
+private:
 	// init
-	bool InitGLFW();
-	bool InitGlad();
-	bool Create();
-
-	bool static GLFWisInit;
-	bool static GladisInit;
-
+	void Create();
+	void InitGLFW();
+	void SetGLFWCallback();
 	// Events
 	void SetupEventListeners();
 	void OnWindowResize(Event& event);

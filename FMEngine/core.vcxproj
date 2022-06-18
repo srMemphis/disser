@@ -165,13 +165,14 @@
     <ClInclude Include="FMEngine\external\imgui\imstb_truetype.h" />
     <ClInclude Include="FMEngine\src\Core\Component.h" />
     <ClInclude Include="FMEngine\src\Core\ComponentList.h" />
-    <ClInclude Include="FMEngine\FMEgui.h" />
     <ClInclude Include="FMEngine\src\GUI\GUI.h" />
     <ClInclude Include="FMEngine\src\Events\Event.h" />
     <ClInclude Include="FMEngine\src\Core\App.h" />
     <ClInclude Include="FMEngine\FMEngine.h" />
     <ClInclude Include="FMEngine\external\glad\include\glad\glad.h" />
     <ClInclude Include="FMEngine\external\glad\include\KHR\khrplatform.h" />
+    <ClInclude Include="FMEngine\src\Render\GraphicsContext.h" />
+    <ClInclude Include="FMEngine\src\Render\OpenGL\OpenGLContext.h" />
     <ClInclude Include="src\Events\EventListener.h" />
     <ClInclude Include="FMEngine\src\Events\EventManager.h" />
     <ClInclude Include="FMEngine\src\Events\MouseEvents.h" />
@@ -198,6 +199,7 @@
     <ClCompile Include="FMEngine\src\Render\Renderer.cpp" />
     <ClCompile Include="FMEngine\src\test.cpp" />
     <ClCompile Include="FMEngine\src\Core\Window.cpp" />
+    <ClCompile Include="FMEngine\src\Render\OpenGL\OpenGLContext.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
