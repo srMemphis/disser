@@ -98,6 +98,9 @@
     <ClInclude Include="FMEngine\src\Render\OpenGL\OpenGLContext.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="FMEngine\src\Render\OpenGL\OpenGLShader.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FMEngine\src\test.cpp">
@@ -149,6 +152,9 @@
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="FMEngine\src\Render\OpenGL\OpenGLContext.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="FMEngine\src\Render\OpenGL\OpenGLShader.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>

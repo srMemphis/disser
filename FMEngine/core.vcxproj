@@ -173,6 +173,7 @@
     <ClInclude Include="FMEngine\external\glad\include\KHR\khrplatform.h" />
     <ClInclude Include="FMEngine\src\Render\GraphicsContext.h" />
     <ClInclude Include="FMEngine\src\Render\OpenGL\OpenGLContext.h" />
+    <ClInclude Include="FMEngine\src\Render\OpenGL\OpenGLShader.h" />
     <ClInclude Include="src\Events\EventListener.h" />
     <ClInclude Include="FMEngine\src\Events\EventManager.h" />
     <ClInclude Include="FMEngine\src\Events\MouseEvents.h" />
@@ -200,6 +201,7 @@
     <ClCompile Include="FMEngine\src\test.cpp" />
     <ClCompile Include="FMEngine\src\Core\Window.cpp" />
     <ClCompile Include="FMEngine\src\Render\OpenGL\OpenGLContext.cpp" />
+    <ClCompile Include="FMEngine\src\Render\OpenGL\OpenGLShader.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
