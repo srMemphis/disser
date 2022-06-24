@@ -172,6 +172,7 @@
     <ClInclude Include="FMEngine\external\glad\include\glad\glad.h" />
     <ClInclude Include="FMEngine\external\glad\include\KHR\khrplatform.h" />
     <ClInclude Include="FMEngine\src\Render\GraphicsContext.h" />
+    <ClInclude Include="FMEngine\src\Render\OpenGL\OpenGLBuffer.h" />
     <ClInclude Include="FMEngine\src\Render\OpenGL\OpenGLContext.h" />
     <ClInclude Include="FMEngine\src\Render\OpenGL\OpenGLShader.h" />
     <ClInclude Include="src\Events\EventListener.h" />
@@ -197,6 +198,7 @@
     <ClCompile Include="FMEngine\src\Events\KeyboardEvents.h" />
     <ClCompile Include="FMEngine\src\Core\App.cpp" />
     <ClCompile Include="FMEngine\external\glad\src\glad.c" />
+    <ClCompile Include="FMEngine\src\Render\OpenGL\OpenGLBuffer.cpp" />
     <ClCompile Include="FMEngine\src\Render\Renderer.cpp" />
     <ClCompile Include="FMEngine\src\test.cpp" />
     <ClCompile Include="FMEngine\src\Core\Window.cpp" />

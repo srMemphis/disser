@@ -12,11 +12,12 @@ std::string read_from_file(const char* file_Path);
 
 
 OpenGLShader::OpenGLShader(const char* vertex_path, const char* fragment_path)
+	: m_ProgramID(0)
 {
 	// Read our shaders into the appropriate buffers
 	std::string vertexSource = read_from_file(vertex_path);     // Get source code for vertex shader.
 	std::string fragmentSource = read_from_file(fragment_path); // Get source code for fragment shader.
-
+	 
 	// Create an empty vertex shader handle
 	GLuint vertexShader = glCreateShader(GL_VERTEX_SHADER);
 
