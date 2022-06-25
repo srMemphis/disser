@@ -2,8 +2,9 @@
 
 #include "glad/glad.h"
 
-
+// ----------------------------------------------------------------------------
 // ------------------- Vertex BUffer ------------------------------------------
+// ----------------------------------------------------------------------------
 
 OpenGLVertexBuffer::OpenGLVertexBuffer(float* vertices, unsigned int size)
 {
@@ -38,7 +39,9 @@ void OpenGLVertexBuffer::SetLayout(const BufferLayout& layout)
 	// FIXME
 }
 
+// ----------------------------------------------------------------------------
 // ------------------- Index BUffer -------------------------------------------
+// ----------------------------------------------------------------------------
 
 OpenGLIndexBuffer::OpenGLIndexBuffer(unsigned int* indices, unsigned int count)
 	: m_Count(count)
