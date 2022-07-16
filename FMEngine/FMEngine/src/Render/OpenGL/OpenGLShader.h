@@ -1,4 +1,5 @@
 #pragma once
+
 class OpenGLShader
 {
 public:
@@ -9,9 +10,5 @@ public:
 	void Unbind();
 
 private:
-
-	unsigned int m_ProgramID;
-
-
+	uint32_t m_ProgramID;
 };
-

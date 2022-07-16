@@ -25,7 +25,7 @@ void testGUI()
 {
     bool show = true;
     //ImGui::ShowDemoWindow(&show);
-
+    
     bool p_open = true;
     // If you strip some features of, this demo is pretty much equivalent to calling DockSpaceOverViewport()!
    // In most cases you should be able to just call DockSpaceOverViewport() and ignore all the code below!
@@ -114,7 +114,6 @@ void testGUI()
                 p_open = false;
             ImGui::EndMenu();
         }
-
 
         ImGui::EndMenuBar();
     }

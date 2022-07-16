@@ -121,7 +121,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>FMEngine\external\GLFW\include;FMEngine\external\glad\include;FMEngine\external\imgui;FMEngine</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>FMEngine\external\GLFW\include;FMEngine\external\glad\include;FMEngine\external\imgui;FMEngine\external\glm;FMEngine</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -140,7 +140,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>FMEngine\external\GLFW\include;FMEngine\external\glad\include;FMEngine\external\imgui;FMEngine</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>FMEngine\external\GLFW\include;FMEngine\external\glad\include;FMEngine\external\imgui;FMEngine\external\glm;FMEngine</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -154,6 +154,9 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="FMEngine\src\Core\Log.h" />
+    <ClInclude Include="FMEngine\src\Render\Buffer.h" />
+    <ClInclude Include="FMEngine\src\Render\Camera.h" />
     <ClInclude Include="FMEngine\external\imgui\backends\imgui_impl_glfw.h" />
     <ClInclude Include="FMEngine\external\imgui\backends\imgui_impl_opengl3.h" />
     <ClInclude Include="FMEngine\external\imgui\backends\imgui_impl_opengl3_loader.h" />
@@ -172,9 +175,15 @@
     <ClInclude Include="FMEngine\external\glad\include\glad\glad.h" />
     <ClInclude Include="FMEngine\external\glad\include\KHR\khrplatform.h" />
     <ClInclude Include="FMEngine\src\Render\GraphicsContext.h" />
+    <ClInclude Include="FMEngine\src\Render\Shader.h" />
     <ClInclude Include="FMEngine\src\Render\OpenGL\OpenGLBuffer.h" />
     <ClInclude Include="FMEngine\src\Render\OpenGL\OpenGLContext.h" />
     <ClInclude Include="FMEngine\src\Render\OpenGL\OpenGLShader.h" />
+    <ClInclude Include="FMEngine\src\Render\OpenGL\OpenGLVertexArray.h" />
+    <ClInclude Include="FMEngine\src\Render\OpenGL\OpenGLRendererAPI.h" />
+    <ClInclude Include="FMEngine\src\Render\RendererAPI.h" />
+    <ClInclude Include="FMEngine\src\Render\RenderCommand.h" />
+    <ClInclude Include="FMEngine\src\Render\VertexArray.h" />
     <ClInclude Include="src\Events\EventListener.h" />
     <ClInclude Include="FMEngine\src\Events\EventManager.h" />
     <ClInclude Include="FMEngine\src\Events\MouseEvents.h" />
@@ -185,6 +194,8 @@
     <ClInclude Include="FMEngine\src\Core\Window.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="FMEngine\src\Render\Buffer.cpp" />
+    <ClCompile Include="FMEngine\src\Render\Camera.cpp" />
     <ClCompile Include="FMEngine\external\imgui\backends\imgui_impl_glfw.cpp" />
     <ClCompile Include="FMEngine\external\imgui\backends\imgui_impl_opengl3.cpp" />
     <ClCompile Include="FMEngine\external\imgui\imgui.cpp" />
@@ -199,11 +210,19 @@
     <ClCompile Include="FMEngine\src\Core\App.cpp" />
     <ClCompile Include="FMEngine\external\glad\src\glad.c" />
     <ClCompile Include="FMEngine\src\Render\OpenGL\OpenGLBuffer.cpp" />
+    <ClCompile Include="FMEngine\src\Render\OpenGL\OpenGLVertexArray.cpp" />
     <ClCompile Include="FMEngine\src\Render\Renderer.cpp" />
+    <ClCompile Include="FMEngine\src\Render\RendererAPI.cpp" />
+    <ClCompile Include="FMEngine\src\Render\VertexArray.cpp" />
     <ClCompile Include="FMEngine\src\test.cpp" />
     <ClCompile Include="FMEngine\src\Core\Window.cpp" />
     <ClCompile Include="FMEngine\src\Render\OpenGL\OpenGLContext.cpp" />
     <ClCompile Include="FMEngine\src\Render\OpenGL\OpenGLShader.cpp" />
+    <ClCompile Include="FMEngine\src\Render\OpenGL\OpenGLRendererAPI.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="FMEngine\src\Render\OpenGL\Shaders\Common.frag" />
+    <None Include="FMEngine\src\Render\OpenGL\Shaders\Common.vert" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

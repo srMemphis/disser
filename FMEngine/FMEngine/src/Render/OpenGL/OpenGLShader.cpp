@@ -78,7 +78,7 @@ OpenGLShader::OpenGLShader(const char* vertex_path, const char* fragment_path)
 
 		std::cout << "Fragment shader compilation ERROR\n";
 		for (GLchar letter : infoLog)
-			std::cout << letter;
+			std::cout << letter << '\n';
 
 		return;
 	}
@@ -134,6 +134,7 @@ void OpenGLShader::Bind()
 {
 	glUseProgram(m_ProgramID);
 }
+
 void OpenGLShader::Unbind()
 {
 	glUseProgram(0);
@@ -150,6 +151,6 @@ std::string read_from_file(const char* file_Path)
 		return buffer.str();
 	}
 
-	std::cerr << "Cannot open file: " << file_Path << '\n';
+	std::cerr << "Shader ERROR: Cannot open file: " << file_Path << '\n';
 	return "";
 }
