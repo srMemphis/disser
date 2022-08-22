@@ -154,7 +154,9 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="FMEngine\src\Core\Log.h" />
+    <ClInclude Include="FMEngine\src\Core\Time.h" />
+    <ClInclude Include="FMEngine\src\Events\InputPolling.h" />
+    <ClInclude Include="FMEngine\src\Events\KeyCodes.h" />
     <ClInclude Include="FMEngine\src\Render\Buffer.h" />
     <ClInclude Include="FMEngine\src\Render\Camera.h" />
     <ClInclude Include="FMEngine\external\imgui\backends\imgui_impl_glfw.h" />
@@ -174,6 +176,7 @@
     <ClInclude Include="FMEngine\FMEngine.h" />
     <ClInclude Include="FMEngine\external\glad\include\glad\glad.h" />
     <ClInclude Include="FMEngine\external\glad\include\KHR\khrplatform.h" />
+    <ClInclude Include="FMEngine\src\Render\CameraController.h" />
     <ClInclude Include="FMEngine\src\Render\GraphicsContext.h" />
     <ClInclude Include="FMEngine\src\Render\Shader.h" />
     <ClInclude Include="FMEngine\src\Render\OpenGL\OpenGLBuffer.h" />
@@ -190,10 +193,11 @@
     <ClInclude Include="FMEngine\src\Events\WindowEvents.h" />
     <ClInclude Include="FMEngine\src\GUI\GUIinterface.h" />
     <ClInclude Include="FMEngine\src\Render\Renderer.h" />
-    <ClInclude Include="FMEngine\src\test.h" />
     <ClInclude Include="FMEngine\src\Core\Window.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="FMEngine\src\Core\Time.cpp" />
+    <ClCompile Include="FMEngine\src\Events\InputPolling.cpp" />
     <ClCompile Include="FMEngine\src\Render\Buffer.cpp" />
     <ClCompile Include="FMEngine\src\Render\Camera.cpp" />
     <ClCompile Include="FMEngine\external\imgui\backends\imgui_impl_glfw.cpp" />
@@ -209,12 +213,14 @@
     <ClCompile Include="FMEngine\src\Events\KeyboardEvents.h" />
     <ClCompile Include="FMEngine\src\Core\App.cpp" />
     <ClCompile Include="FMEngine\external\glad\src\glad.c" />
+    <ClCompile Include="FMEngine\src\Render\CameraController.cpp" />
     <ClCompile Include="FMEngine\src\Render\OpenGL\OpenGLBuffer.cpp" />
     <ClCompile Include="FMEngine\src\Render\OpenGL\OpenGLVertexArray.cpp" />
+    <ClCompile Include="FMEngine\src\Render\RenderCommand.cpp" />
     <ClCompile Include="FMEngine\src\Render\Renderer.cpp" />
     <ClCompile Include="FMEngine\src\Render\RendererAPI.cpp" />
+    <ClCompile Include="FMEngine\src\Render\Shader.cpp" />
     <ClCompile Include="FMEngine\src\Render\VertexArray.cpp" />
-    <ClCompile Include="FMEngine\src\test.cpp" />
     <ClCompile Include="FMEngine\src\Core\Window.cpp" />
     <ClCompile Include="FMEngine\src\Render\OpenGL\OpenGLContext.cpp" />
     <ClCompile Include="FMEngine\src\Render\OpenGL\OpenGLShader.cpp" />

@@ -1,23 +1,24 @@
 #pragma once
 #include "src/Events/Event.h"
+#include "KeyCodes.h"
 
 //base class
 class MouseButtonEvent : public Event
 {
 public:
-	int GetButton() const { return m_Button; }
+	MouseCode GetButton() const { return m_Button; }
 
 protected:
-	MouseButtonEvent(int button)
-		: m_Button(button) {}
-	int m_Button;
+	MouseButtonEvent(int16_t button)
+		: m_Button(MouseCode(button)) {}
+	MouseCode m_Button;
 };
 
 // Mouse psressed
 class MousePressEvent : public MouseButtonEvent
 {
 public:
-	MousePressEvent(int button)
+	MousePressEvent(int16_t button)
 		: MouseButtonEvent(button) {}
 	EventType GetType() override { return EventType::MousePress; }
 };
@@ -26,7 +27,7 @@ public:
 class MouseReleaseEvent : public MouseButtonEvent
 {
 public:
-	MouseReleaseEvent(int button)
+	MouseReleaseEvent(int16_t button)
 		: MouseButtonEvent(button) {}
 	EventType GetType() override { return EventType::MouseRelease; }
 };

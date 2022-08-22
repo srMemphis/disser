@@ -25,17 +25,18 @@ void OpenGLRendererAPI::Clear()
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 }
 
-void OpenGLRendererAPI::DrawIndexed(const std::shared_ptr<VertexArray>& vertexArray, uint32_t indexCount)
+void OpenGLRendererAPI::DrawIndexed(const std::shared_ptr<VertexArray>& vertexArray)
 {
 	vertexArray->Bind();
-	uint32_t count = indexCount ? indexCount : vertexArray->GetIndexBuffer()->GetCount();
+	uint32_t count = vertexArray->GetIndexBuffer()->GetCount();
 	glDrawElements(GL_TRIANGLES, count, GL_UNSIGNED_INT, nullptr);
 }
 
-void OpenGLRendererAPI::DrawLines(const std::shared_ptr<VertexArray>& vertexArray, uint32_t vertexCount)
+void OpenGLRendererAPI::DrawLines(const std::shared_ptr<VertexArray>& vertexArray)
 {
 	vertexArray->Bind();
-	glDrawArrays(GL_LINES, 0, vertexCount);
+	uint32_t count = vertexArray->GetIndexBuffer()->GetCount();
+	glDrawArrays(GL_LINES, 0, count);
 }
 
 void OpenGLRendererAPI::SetLineWidth(float width)

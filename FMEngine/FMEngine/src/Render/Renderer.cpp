@@ -20,7 +20,7 @@ void Renderer::OnWindowResize(uint32_t width, uint32_t height)
 
 void Renderer::BeginScene(Camera& camera)
 {
-	s_SceneData->ViewProjectionMatrix = camera.GetViewProjectionMatrix();
+	s_SceneData->ViewProjectionMatrix = camera.GetVPMatrix();
 }
 
 void Renderer::EndScene()

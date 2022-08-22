@@ -29,7 +29,6 @@ protected:
 	
 	virtual void OnWindowClose(Event& event);
 
-
 private:
 	static App* s_Instance;
 	GUI m_gui;

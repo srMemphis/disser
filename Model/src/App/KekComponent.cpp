@@ -18,7 +18,6 @@ void KekComponent::OnGuiRender()
     bool show = true;
     ImGui::ShowAboutWindow(&show);
     ImGui::ShowMetricsWindow(&show);
-    
 }
 
 void testGUI()

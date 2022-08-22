@@ -56,7 +56,7 @@ void GUI::End()
     App& app = App::GetInstance();
 
     //display size
-    io.DisplaySize = ImVec2(app.GetWindow()->GetWidth(), app.GetWindow()->GetHight());
+    io.DisplaySize = ImVec2((float)app.GetWindow()->GetWidth(), (float)app.GetWindow()->GetHight());
 
     // Rendering
     ImGui::Render();

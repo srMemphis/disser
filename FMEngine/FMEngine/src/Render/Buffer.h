@@ -34,7 +34,7 @@ struct BufferElement
 	std::string Name;
 	ShaderDataType Type;
 	uint32_t Size;
-	uint32_t Offset;
+	uint64_t Offset;
 	bool Normalized;
 
 	BufferElement() = default;
@@ -116,7 +116,7 @@ public:
 	virtual const BufferLayout& GetLayout() = 0;
 	virtual void SetLayout(const BufferLayout& layout) = 0;
 
-	VertexBuffer* Create(float* vertices, uint32_t size);
+	static VertexBuffer* Create(float* vertices, uint32_t size);
 };
 
 class IndexBuffer
@@ -129,5 +129,5 @@ public:
 
 	virtual unsigned int GetCount() = 0;
 
-	IndexBuffer* Create(uint32_t* indices, uint32_t count);
+	static IndexBuffer* Create(uint32_t* indices, uint32_t count);
 };

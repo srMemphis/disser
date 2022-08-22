@@ -20,7 +20,9 @@ public:
 	virtual const std::shared_ptr<IndexBuffer>& GetIndexBuffer() const override;
 
 private:
-	std::vector<std::shared_ptr<VertexBuffer>> m_VexrtexBuffers;
+	std::vector<std::shared_ptr<VertexBuffer>> m_VertexBuffers;
 	std::shared_ptr<IndexBuffer> m_IndexBuffer;
-	unsigned int m_ArrayID;
+
+	uint32_t m_ArrayID;
+	uint32_t m_VertexBufferIndex = 0;
 };
