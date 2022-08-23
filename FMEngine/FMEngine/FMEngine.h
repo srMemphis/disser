@@ -17,6 +17,7 @@
 #include "src/Render/Buffer.h"
 #include "src/Render/VertexArray.h"
 #include "src/Render/Shader.h"
+#include "src/Render/FrameBuffer.h"
 
 #include "src/Render/CameraController.h"
 

@@ -177,7 +177,9 @@
     <ClInclude Include="FMEngine\external\glad\include\glad\glad.h" />
     <ClInclude Include="FMEngine\external\glad\include\KHR\khrplatform.h" />
     <ClInclude Include="FMEngine\src\Render\CameraController.h" />
+    <ClInclude Include="FMEngine\src\Render\FrameBuffer.h" />
     <ClInclude Include="FMEngine\src\Render\GraphicsContext.h" />
+    <ClInclude Include="FMEngine\src\Render\OpenGL\OpenGLFrameBuffer.h" />
     <ClInclude Include="FMEngine\src\Render\Shader.h" />
     <ClInclude Include="FMEngine\src\Render\OpenGL\OpenGLBuffer.h" />
     <ClInclude Include="FMEngine\src\Render\OpenGL\OpenGLContext.h" />
@@ -214,7 +216,9 @@
     <ClCompile Include="FMEngine\src\Core\App.cpp" />
     <ClCompile Include="FMEngine\external\glad\src\glad.c" />
     <ClCompile Include="FMEngine\src\Render\CameraController.cpp" />
+    <ClCompile Include="FMEngine\src\Render\FrameBuffer.cpp" />
     <ClCompile Include="FMEngine\src\Render\OpenGL\OpenGLBuffer.cpp" />
+    <ClCompile Include="FMEngine\src\Render\OpenGL\OpenGLFrameBuffer.cpp" />
     <ClCompile Include="FMEngine\src\Render\OpenGL\OpenGLVertexArray.cpp" />
     <ClCompile Include="FMEngine\src\Render\RenderCommand.cpp" />
     <ClCompile Include="FMEngine\src\Render\Renderer.cpp" />
