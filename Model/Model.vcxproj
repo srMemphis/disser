@@ -146,11 +146,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\App\RenderComponent.cpp" />
     <ClCompile Include="src\App\KekComponent.cpp" />
     <ClCompile Include="src\Main.cpp" />
     <ClCompile Include="src\App\MyApp.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\App\RenderComponent.h" />
     <ClInclude Include="src\App\KekComponent.h" />
     <ClInclude Include="src\App\MyApp.h" />
   </ItemGroup>

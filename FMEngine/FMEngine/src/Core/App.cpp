@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <exception>
+#include "external/glad/include/glad/glad.h"
 
 App* App::s_Instance = nullptr;
 
@@ -22,6 +23,8 @@ App::App()
 	// setup Window close event listener
 	std::shared_ptr<EventListener> OnWindowCloseListener = std::make_shared<EventListener>(std::bind(&App::OnWindowClose, this, std::placeholders::_1));
 	m_EventManager.AddListener(EventType::WindowClose, OnWindowCloseListener);
+
+
 }
 
 App::~App()
@@ -35,9 +38,6 @@ void App::Run()
 	{	
 		// polling and procecing events
 		m_EventManager.ProcessEvents();
-
-
-
 
 
 

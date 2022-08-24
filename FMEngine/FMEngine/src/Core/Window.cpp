@@ -18,6 +18,7 @@ Window::Window()
 	// Create Window
 	InitGLFW();
 	Create();
+	glfwSetInputMode(m_GLFWwindow, GLFW_STICKY_KEYS, GLFW_FALSE);
 
 	// init Glad and make context current
 	m_Context = new OpenGLContext(m_GLFWwindow);
@@ -130,9 +131,12 @@ void Window::SetupEventListeners()
 
 void Window::OnWindowResize(Event& event)
 {
-	std::cout << "Window resize event!\n";
+	
 	WindowResizeEvent& resizeEvent = dynamic_cast<WindowResizeEvent&>(event);
 	m_Width = resizeEvent.GetWidth();
 	m_Hight = resizeEvent.GetHight();
-	glViewport(0, 0, m_Width, m_Hight);
+	//glViewport(0, 0, m_Width, m_Hight);
+	
+	//std::cout << "Window resize event!\n";
+	//std::cout << m_Width << "  " << m_Hight << '\n';
 }

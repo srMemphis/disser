@@ -1,16 +1,16 @@
 #include "OpenGLBuffer.h"
 
-#include "glad/glad.h"
+#include <glad/glad.h>
 
 // ----------------------------------------------------------------------------
 // ------------------- Vertex BUffer ------------------------------------------
 // ----------------------------------------------------------------------------
 
-OpenGLVertexBuffer::OpenGLVertexBuffer(float* vertices, unsigned int size)
+OpenGLVertexBuffer::OpenGLVertexBuffer(float* vertices, uint32_t size)
 {
 	glGenBuffers(1, &m_BufferID);
 	glBindBuffer(GL_ARRAY_BUFFER, m_BufferID);
-	glBufferData(GL_ARRAY_BUFFER, size, vertices, GL_DYNAMIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, size, vertices, GL_STATIC_DRAW);
 }
 
 OpenGLVertexBuffer::~OpenGLVertexBuffer()
@@ -28,27 +28,22 @@ void OpenGLVertexBuffer::Unbind()
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 }
 
-void OpenGLVertexBuffer::SetData(const void* data, unsigned int size)
+void OpenGLVertexBuffer::SetData(const void* data, uint32_t size)
 {
 	glBindBuffer(GL_ARRAY_BUFFER, m_BufferID);
 	glBufferSubData(GL_ARRAY_BUFFER, 0, size, data);
-}
-
-void OpenGLVertexBuffer::SetLayout(const BufferLayout& layout)
-{
-	// FIXME
 }
 
 // ----------------------------------------------------------------------------
 // ------------------- Index BUffer -------------------------------------------
 // ----------------------------------------------------------------------------
 
-OpenGLIndexBuffer::OpenGLIndexBuffer(unsigned int* indices, unsigned int count)
+OpenGLIndexBuffer::OpenGLIndexBuffer(uint32_t* indices, uint32_t count)
 	: m_Count(count)
 {
 	glGenBuffers(1, &m_BufferID);
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_BufferID);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, count * sizeof(unsigned int), indices, GL_DYNAMIC_DRAW);
+	glBindBuffer(GL_ARRAY_BUFFER, m_BufferID);
+	glBufferData(GL_ARRAY_BUFFER, count * sizeof(uint32_t), indices, GL_STATIC_DRAW);
 }
 
 OpenGLIndexBuffer::~OpenGLIndexBuffer()

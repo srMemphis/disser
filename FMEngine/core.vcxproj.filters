@@ -20,9 +20,6 @@
     <ClInclude Include="FMEngine\FMEngine.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="FMEngine\src\test.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
     <ClInclude Include="FMEngine\external\glad\include\glad\glad.h">
       <Filter>external\glad</Filter>
     </ClInclude>
@@ -104,11 +101,50 @@
     <ClInclude Include="FMEngine\src\Render\OpenGL\OpenGLBuffer.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="FMEngine\src\Render\OpenGL\OpenGLVertexArray.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="FMEngine\src\Render\OpenGL\OpenGLRendererAPI.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="FMEngine\src\Render\Camera.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="FMEngine\src\Render\RendererAPI.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="FMEngine\src\Render\Buffer.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="FMEngine\src\Render\VertexArray.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="FMEngine\src\Render\RenderCommand.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="FMEngine\src\Render\Shader.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="FMEngine\src\Render\CameraController.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="FMEngine\src\Events\InputPolling.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="FMEngine\src\Events\KeyCodes.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="FMEngine\src\Core\Time.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="FMEngine\src\Render\FrameBuffer.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="FMEngine\src\Render\OpenGL\OpenGLFrameBuffer.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="FMEngine\src\test.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="FMEngine\external\glad\src\glad.c">
       <Filter>external\glad</Filter>
     </ClCompile>
@@ -163,5 +199,48 @@
     <ClCompile Include="FMEngine\src\Render\OpenGL\OpenGLBuffer.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="FMEngine\src\Render\OpenGL\OpenGLVertexArray.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="FMEngine\src\Render\OpenGL\OpenGLRendererAPI.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="FMEngine\src\Render\Camera.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="FMEngine\src\Render\Buffer.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="FMEngine\src\Render\RendererAPI.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="FMEngine\src\Render\VertexArray.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="FMEngine\src\Render\Shader.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="FMEngine\src\Render\RenderCommand.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="FMEngine\src\Events\InputPolling.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="FMEngine\src\Render\CameraController.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="FMEngine\src\Core\Time.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="FMEngine\src\Render\FrameBuffer.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="FMEngine\src\Render\OpenGL\OpenGLFrameBuffer.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="FMEngine\src\Render\OpenGL\Shaders\Common.vert" />
+    <None Include="FMEngine\src\Render\OpenGL\Shaders\Common.frag" />
   </ItemGroup>
 </Project>

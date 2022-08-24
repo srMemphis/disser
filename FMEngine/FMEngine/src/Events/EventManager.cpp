@@ -2,12 +2,13 @@
 
 void EventManager::ProcessEvents()
 {
+	RemoveInactiveListners();
 	// loop through events
 	for (auto event : m_EventArray)
 	{
 		// find iterator to first matching listener
 		auto it = m_ListenersMap.find(event->GetType());
-		// iterating through all mathing listners
+		// iterating through all mathing listeners
 		for (int i = 0; i < m_ListenersMap.count(event->GetType()); i++)
 		{	
 			// processing event on mathing listener
