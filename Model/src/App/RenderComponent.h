@@ -15,4 +15,5 @@ private:
 
 	std::shared_ptr<Camera> m_Camera;
 	std::shared_ptr<CameraController> m_CamControll;
+	std::shared_ptr<FrameBuffer> m_FrameBuffer;
 };

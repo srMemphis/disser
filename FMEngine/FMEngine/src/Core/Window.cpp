@@ -135,7 +135,7 @@ void Window::OnWindowResize(Event& event)
 	WindowResizeEvent& resizeEvent = dynamic_cast<WindowResizeEvent&>(event);
 	m_Width = resizeEvent.GetWidth();
 	m_Hight = resizeEvent.GetHight();
-	glViewport(0, 0, m_Width, m_Hight);
+	//glViewport(0, 0, m_Width, m_Hight);
 	
 	//std::cout << "Window resize event!\n";
 	//std::cout << m_Width << "  " << m_Hight << '\n';
