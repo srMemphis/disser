@@ -33,7 +33,7 @@ RenderComponent::RenderComponent()
 	indexBuffer.reset(IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
 	m_VertexArray->SetIndexBuffer(indexBuffer);
 
-	m_Shader.reset(Shader::Create("Common", "D:/C/repos/diser/FMEngine/FMEngine/src/Render/OpenGL/Shaders/Common.vert", "D:/C/repos/diser/FMEngine/FMEngine/src/Render/OpenGL/Shaders/Common.frag"));
+	m_Shader.reset(Shader::Create("Common", "C:/Users/User/source/repos/diser/FMEngine/FMEngine/src/Render/OpenGL/Shaders/Common.vert", "C:/Users/User/source/repos/diser/FMEngine/FMEngine/src/Render/OpenGL/Shaders/Common.frag"));
 	m_Time = Time::CurTime();
 
 
