@@ -98,6 +98,13 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy $(ProjectDir)FMEngine\external\assimp\lib\*.dll $(TargetDir) /k /y
+xcopy $(ProjectDir)FMEngine\src\Render\OpenGL\Shaders $(TargetDir)Shaders /e /y /i</Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>Copy DLLs and Shaders to Target Directory</Message>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -114,6 +121,13 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy $(ProjectDir)FMEngine\external\assimp\lib\*.dll $(TargetDir) /k /y
+xcopy $(ProjectDir)FMEngine\src\Render\OpenGL\Shaders $(TargetDir)Shaders /e /y /i</Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>Copy DLLs and Shaders to Target Directory</Message>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -131,6 +145,13 @@
       <AdditionalDependencies>opengl32.lib;glfw3.lib;assimp-vc143-mt.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>FMEngine/external/assimp/lib;FMEngine/external/GLFW/lib-vc2022</AdditionalLibraryDirectories>
     </Lib>
+    <PostBuildEvent>
+      <Command>xcopy $(ProjectDir)FMEngine\external\assimp\lib\*.dll $(TargetDir) /k /y
+xcopy $(ProjectDir)FMEngine\src\Render\OpenGL\Shaders $(TargetDir)Shaders /e /y /i</Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>Copy DLLs and Shaders to Target Directory</Message>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -152,6 +173,13 @@
       <AdditionalDependencies>opengl32.lib;glfw3.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>FMEngine/external/GLFW/lib-vc2022</AdditionalLibraryDirectories>
     </Lib>
+    <PostBuildEvent>
+      <Command>xcopy $(ProjectDir)FMEngine\external\assimp\lib\*.dll $(TargetDir) /k /y
+xcopy $(ProjectDir)FMEngine\src\Render\OpenGL\Shaders $(TargetDir)Shaders /e /y /i</Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>Copy DLLs and Shaders to Target Directory</Message>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="FMEngine\src\Core\Time.h" />
@@ -198,7 +226,6 @@
     <ClInclude Include="FMEngine\src\GUI\GUIinterface.h" />
     <ClInclude Include="FMEngine\src\Render\Renderer.h" />
     <ClInclude Include="FMEngine\src\Core\Window.h" />
-    <ClInclude Include="FMEngine\src\Scene\Texture.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FMEngine\src\Core\Time.cpp" />
@@ -234,7 +261,6 @@
     <ClCompile Include="FMEngine\src\Render\OpenGL\OpenGLRendererAPI.cpp" />
     <ClCompile Include="FMEngine\src\Scene\Mesh.cpp" />
     <ClCompile Include="FMEngine\src\Scene\Model.cpp" />
-    <ClCompile Include="FMEngine\src\Scene\Texture.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="FMEngine\src\Render\OpenGL\Shaders\Common.frag" />

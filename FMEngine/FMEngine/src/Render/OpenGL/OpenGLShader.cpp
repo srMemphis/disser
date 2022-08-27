@@ -24,7 +24,7 @@ std::string read_from_file(const std::string& file_Path)
 }
 
 OpenGLShader::OpenGLShader()
-	: OpenGLShader("Common", "C:/Users/User/source/repos/diser/FMEngine/FMEngine/src/Render/OpenGL/Shaders/Common.vert", "C:/Users/User/source/repos/diser/FMEngine/FMEngine/src/Render/OpenGL/Shaders/Common.frag")
+	: OpenGLShader("Common", "Shaders/Common.vert", "Shaders/Common.frag")
 {
 }
 

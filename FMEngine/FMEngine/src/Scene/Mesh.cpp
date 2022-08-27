@@ -4,11 +4,32 @@ Mesh::~Mesh()
 {
 }
 
-void Mesh::SetLayout(std::initializer_list<BufferElement> elements)
+void Mesh::AddVertex(const Vertex& vert)
 {
+	m_Vertices.push_back(vert);
 }
 
-const void* Mesh::GetData() const
+void Mesh::AddFace(const Face& face)
 {
-	return nullptr;
+	m_Faces.push_back(face);
+}
+
+void Mesh::GenerateRenderBuffers()
+{
+	m_VAO.reset(VertexArray::Create());
+
+	std::shared_ptr<VertexBuffer> VBO;
+	VBO.reset(VertexBuffer::Create((float*)m_Vertices.data(), sizeof(Vertex) * (uint32_t)m_Vertices.size()));
+	BufferLayout layout = {
+		{ ShaderDataType::Float3, "a_Position" },
+		{ ShaderDataType::Float3, "a_Norm" },
+		{ ShaderDataType::Float2, "a_TexCoord" }
+	};
+	VBO->SetLayout(layout);
+	m_VAO->AddVertexBuffer(VBO);
+
+	std::shared_ptr<IndexBuffer> EBO;
+	EBO.reset(IndexBuffer::Create((uint32_t*)m_Faces.data(),(uint32_t)m_Faces.size() * 3));
+	m_VAO->SetIndexBuffer(EBO);
+
 }

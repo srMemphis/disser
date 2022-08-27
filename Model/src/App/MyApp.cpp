@@ -8,8 +8,8 @@
 MyApp::MyApp()
 	: App()
 {
-	//m_ComponentList.AddComponent(new KekComponent());
-	m_ComponentList.AddComponent(new RenderComponent());
+	m_ComponentList.AddComponent(new KekComponent());
+	//m_ComponentList.AddComponent(new RenderComponent());
 }
 
 MyApp::~MyApp()

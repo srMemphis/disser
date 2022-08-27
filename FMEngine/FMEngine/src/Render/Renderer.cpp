@@ -1,12 +1,12 @@
 #include "Renderer.h"
 #include "RenderCommand.h"
+#include "src/Scene/Mesh.h"
 
 Renderer::SceneData* Renderer::s_SceneData = new Renderer::SceneData();
 
 void Renderer::Init()
 {
 	RenderCommand::Init();
-	//Renderer2D::Init();
 }
 
 void Renderer::Shutdown()
@@ -35,4 +35,19 @@ void Renderer::Submit(const std::shared_ptr<Shader>& shader, const std::shared_p
 
 	vertexArray->Bind();
 	RenderCommand::DrawIndexed(vertexArray);
+}
+
+void Renderer::Submit(const std::shared_ptr<Shader>& shader, const std::shared_ptr<Model>& model , const glm::mat4& transform)
+{
+	shader->Bind();
+	shader->SetMat4("u_ViewProjection", s_SceneData->ViewProjectionMatrix);
+	shader->SetMat4("u_Transform", transform);
+
+	
+	for (const Mesh& mesh : model->GetMeshes())
+	{
+		mesh.GetVAO()->Bind();
+		RenderCommand::DrawIndexed(mesh.GetVAO());
+	}
+
 }
