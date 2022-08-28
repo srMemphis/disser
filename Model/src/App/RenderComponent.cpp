@@ -39,7 +39,7 @@ RenderComponent::RenderComponent()
 
 
 
-
+	// test
 
 	m_FrameBuffer.reset(FrameBuffer::Create(512, 512));
 
