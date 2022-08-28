@@ -5,18 +5,18 @@ KekComponent::KekComponent()
 {
 	RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1 });
 
-	m_Camera.reset(new Camera());
+	m_Camera.reset(new FPSCamera());
 	m_Camera->SetPos({ 0,0,2 });
 
 	m_CamControll.reset(new CameraController(m_Camera));
 	m_CamControll->SetTranslationSpeed(1.);
 
 	// model loading
-	m_Model.reset(new Model("C:/Users/User/source/repos/diser/Model/models/STL/sphereWithHole.stl"));
+	m_Model.reset(new Model("assets/models/IFC/AC14-FZK-Haus.ifc"));
 
 	m_FrameBuffer.reset(FrameBuffer::Create(512, 512));
 
-	m_Shader.reset(Shader::Create("Common", "C:/Users/User/source/repos/diser/FMEngine/FMEngine/src/Render/OpenGL/Shaders/Common.vert", "C:/Users/User/source/repos/diser/FMEngine/FMEngine/src/Render/OpenGL/Shaders/Common.frag"));
+	m_Shader.reset(Shader::Create("Common", "assets/Shaders/Common.vert", "assets/Shaders/Common.frag"));
 	m_Time = Time::CurTime();
 
 }
@@ -72,6 +72,5 @@ void KekComponent::OnGuiRender()
 	ImGui::Image((void*)m_FrameBuffer->GetTextureID(), ImVec2(viewportSize.x, viewportSize.y));
 	ImGui::End();
 	ImGui::ShowMetricsWindow();
-
 
 }

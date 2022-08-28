@@ -5,7 +5,7 @@ RenderComponent::RenderComponent()
 {
 	RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1 });
 
-	m_Camera.reset(new Camera());
+	m_Camera.reset(new FPSCamera());
 	m_Camera->SetPos({0,0,2});
 
 	m_CamControll.reset(new CameraController(m_Camera));
@@ -33,7 +33,7 @@ RenderComponent::RenderComponent()
 	indexBuffer.reset(IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
 	m_VertexArray->SetIndexBuffer(indexBuffer);
 
-	m_Shader.reset(Shader::Create("Common", "C:/Users/User/source/repos/diser/FMEngine/FMEngine/src/Render/OpenGL/Shaders/Common.vert", "C:/Users/User/source/repos/diser/FMEngine/FMEngine/src/Render/OpenGL/Shaders/Common.frag"));
+	m_Shader.reset(Shader::Create("Common", "Shaders/Common.vert", "Shaders/Common.frag"));
 	m_Time = Time::CurTime();
 
 

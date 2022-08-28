@@ -19,7 +19,7 @@
 #include "src/Render/FrameBuffer.h"
 
 // Scene
-#include "src/Render/CameraController.h"
+#include "src/Scene/CameraController.h"
 #include "external/glm/glm/gtc/matrix_transform.hpp"
 
 // Utility

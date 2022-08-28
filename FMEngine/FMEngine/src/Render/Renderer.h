@@ -4,7 +4,7 @@
 #include "src/Render/OpenGL/OpenGLContext.h"
 #include "src/Render/OpenGL/OpenGLShader.h"
 #include "src/Render/OpenGL/OpenGLVertexArray.h"
-#include "src/Render/Camera.h"
+#include "src/Scene/FPSCamera.h"
 #include "src/Render/Shader.h"
 
 #include "src/Render/RendererAPI.h"
@@ -19,7 +19,7 @@ public:
 
 	static void OnWindowResize(uint32_t width, uint32_t height);
 
-	static void BeginScene(Camera& camera);
+	static void BeginScene(FPSCamera& camera);
 	static void EndScene();
 
 	static void Submit(const std::shared_ptr<Shader>& shader, const std::shared_ptr<VertexArray>& vertexArray, const glm::mat4& transform = glm::mat4(1.0f));

@@ -24,7 +24,7 @@ std::string read_from_file(const std::string& file_Path)
 }
 
 OpenGLShader::OpenGLShader()
-	: OpenGLShader("Common", "Shaders/Common.vert", "Shaders/Common.frag")
+	: OpenGLShader("Common", "assets/Shaders/Common.vert", "assets/Shaders/Common.frag")
 {
 }
 
