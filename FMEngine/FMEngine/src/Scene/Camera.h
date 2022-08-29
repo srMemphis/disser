@@ -8,6 +8,7 @@
 #pragma once
 #include "external/glm/glm/glm.hpp"
 #include "external/glm/glm/gtc/matrix_transform.hpp"
+#include "external/glm/glm/gtx/quaternion.hpp"
 
 class Camera
 {

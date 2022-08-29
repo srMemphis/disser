@@ -217,6 +217,7 @@
     <ClInclude Include="FMEngine\src\Scene\Mesh.h" />
     <ClInclude Include="FMEngine\src\Scene\Model.h" />
     <ClInclude Include="FMEngine\src\Scene\MVCamera.h" />
+    <ClInclude Include="FMEngine\src\Scene\MVCameraController.h" />
     <ClInclude Include="src\Events\EventListener.h" />
     <ClInclude Include="FMEngine\src\Events\EventManager.h" />
     <ClInclude Include="FMEngine\src\Events\MouseEvents.h" />
@@ -261,6 +262,7 @@
     <ClCompile Include="FMEngine\src\Scene\Mesh.cpp" />
     <ClCompile Include="FMEngine\src\Scene\Model.cpp" />
     <ClCompile Include="FMEngine\src\Scene\MVCamera.cpp" />
+    <ClCompile Include="FMEngine\src\Scene\MVCameraController.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="FMEngine\src\Render\OpenGL\Shaders\Common.frag" />

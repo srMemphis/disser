@@ -18,9 +18,9 @@ void Renderer::OnWindowResize(uint32_t width, uint32_t height)
 	//RenderCommand::SetViewport(0, 0, width, height);
 }
 
-void Renderer::BeginScene(FPSCamera& camera)
+void Renderer::BeginScene(const std::shared_ptr<Camera>& camera)
 {
-	s_SceneData->ViewProjectionMatrix = camera.GetVPMatrix();
+	s_SceneData->ViewProjectionMatrix = camera->GetVPMatrix();
 }
 
 void Renderer::EndScene()
@@ -41,11 +41,10 @@ void Renderer::Submit(const std::shared_ptr<Shader>& shader, const std::shared_p
 {
 	shader->Bind();
 	shader->SetMat4("u_ViewProjection", s_SceneData->ViewProjectionMatrix);
-	shader->SetMat4("u_Transform", transform);
-
 	
 	for (const Mesh& mesh : model->GetMeshes())
 	{
+		shader->SetMat4("u_Transform", mesh.GetTransform() * transform);
 		mesh.GetVAO()->Bind();
 		RenderCommand::DrawIndexed(mesh.GetVAO());
 	}

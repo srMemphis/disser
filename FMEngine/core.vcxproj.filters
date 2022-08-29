@@ -155,6 +155,9 @@
     <ClInclude Include="FMEngine\src\Scene\Camera.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="FMEngine\src\Scene\MVCameraController.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FMEngine\external\glad\src\glad.c">
@@ -260,6 +263,9 @@
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="FMEngine\src\Scene\MVCamera.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="FMEngine\src\Scene\MVCameraController.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>

@@ -5,14 +5,14 @@ KekComponent::KekComponent()
 {
 	RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1 });
 
-	m_Camera.reset(new FPSCamera());
+	m_Camera.reset(new MVCamera({ 1.09159, 0.721172, -0.511793 }, { 0.0378288, 0.393665, -0.0402839 }));
 	m_Camera->SetPos({ 0,0,2 });
 
-	m_CamControll.reset(new CameraController(m_Camera));
-	m_CamControll->SetTranslationSpeed(1.);
+	m_CamControll.reset(new MVCameraController(std::dynamic_pointer_cast<MVCamera>(m_Camera)));
+	m_CamControll->SetTranslationSpeed(0.1);
 
 	// model loading
-	m_Model.reset(new Model("assets/models/IFC/AC14-FZK-Haus.ifc"));
+	m_Model.reset(new Model("assets/models/MS3D/jeep1.ms3d"));
 
 	m_FrameBuffer.reset(FrameBuffer::Create(512, 512));
 
@@ -46,18 +46,18 @@ void KekComponent::OnGuiRender()
 	ImVec2 viewportSize = { vMax.x - vMin.x, vMax.y - vMin.y };
 
 
-	m_FrameBuffer->Resize(viewportSize.x, viewportSize.y);
+	m_FrameBuffer->Resize((int32_t)viewportSize.x, (int32_t)viewportSize.y);
 	m_FrameBuffer->Bind();
 	RenderCommand::Clear();
 
-	m_Camera->SetAspectRatio(viewportSize.x / viewportSize.y);
+	m_Camera->SetView(viewportSize.x, viewportSize.y);
 
 	float timestep = Time::CurTime() - m_Time;
 	m_Time = Time::CurTime();
 	m_CamControll->SetActive(focus);
 	m_CamControll->Update(timestep);
 
-	Renderer::BeginScene(*m_Camera);
+	Renderer::BeginScene(m_Camera);
 
 	glm::mat4 transform = glm::translate(glm::mat4(1), glm::vec3(0, 0, 0));
 	transform = glm::scale(transform, glm::vec3(0.1, 0.1, 0.1));

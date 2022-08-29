@@ -14,8 +14,8 @@ private:
 	std::shared_ptr<Shader> m_Shader;
 	std::shared_ptr<Model> m_Model;
 
-	std::shared_ptr<FPSCamera> m_Camera;
-	std::shared_ptr<CameraController> m_CamControll;
+	std::shared_ptr<Camera> m_Camera;
+	std::shared_ptr<MVCameraController> m_CamControll;
 	std::shared_ptr<FrameBuffer> m_FrameBuffer;
 
 };

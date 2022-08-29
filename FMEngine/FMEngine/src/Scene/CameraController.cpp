@@ -82,7 +82,7 @@ void CameraController::Update(float timestep)
 			default:		  m_Camera->Move(m_Camera->GetFront() * m_TranslationSpeed * timestep);                                        break; // front
 			}
 		}
-			
+		
 		if (m_LastKeys[0] == KeyCode::A)
 		{
 			switch (m_LastKeys[1])

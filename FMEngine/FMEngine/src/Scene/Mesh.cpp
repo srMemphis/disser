@@ -14,6 +14,16 @@ void Mesh::AddFace(const Face& face)
 	m_Faces.push_back(face);
 }
 
+void Mesh::SetTransform(const glm::mat4& transform)
+{
+	m_Transform = transform;
+}
+
+const glm::mat4& Mesh::GetTransform() const
+{
+	return m_Transform;
+}
+
 void Mesh::GenerateRenderBuffers()
 {
 	m_VAO.reset(VertexArray::Create());

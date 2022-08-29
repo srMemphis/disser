@@ -15,8 +15,8 @@ FPSCamera::FPSCamera(const glm::vec3& pos, const glm::vec3& target, float fow)
     m_Right = glm::normalize(glm::cross(m_Front, m_WorldUp));
     m_Up = glm::cross(m_Right, m_Front);
 
-    m_Pitch = glm::asin(-m_Front.y);
-    m_Yaw = glm::asin(-m_Front.z / glm::cos(m_Pitch));
+    m_Pitch = glm::asin(m_Front.y);
+    m_Yaw = glm::asin(m_Front.z / glm::cos(m_Pitch));
 }
 
 void FPSCamera::SetPerspective(float verticalFOV, float nearClip, float farClip)

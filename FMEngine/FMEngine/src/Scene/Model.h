@@ -26,6 +26,6 @@ private:
 	std::string m_Dir;
 
 private:
-	void ProcessNode(aiNode* node, const aiScene* scene);
-	Mesh ProcessMesh(aiMesh* mesh, const aiScene* scene);
+	void ProcessNode(aiNode* node, const aiScene* scene, const glm::mat4& transform);
+	Mesh ProcessMesh(aiMesh* mesh, const aiScene* scene, const glm::mat4& transform);
 };

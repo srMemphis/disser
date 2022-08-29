@@ -20,6 +20,8 @@
 
 // Scene
 #include "src/Scene/CameraController.h"
+#include "src/Scene/MVCamera.h"
+#include "src/Scene/MVCameraController.h"
 #include "external/glm/glm/gtc/matrix_transform.hpp"
 
 // Utility

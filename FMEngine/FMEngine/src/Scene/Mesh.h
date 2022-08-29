@@ -28,6 +28,8 @@ public:
 	
 	void AddVertex(const Vertex& vert);
 	void AddFace(const Face& face);
+	void SetTransform(const glm::mat4& transform);
+	const glm::mat4& GetTransform() const;
 
 	void GenerateRenderBuffers();
 	const std::shared_ptr<VertexArray> GetVAO() const { return m_VAO; };
@@ -35,6 +37,7 @@ public:
 private:
 	std::vector<Face> m_Faces;
 	std::vector<Vertex> m_Vertices;
+	glm::mat4 m_Transform;
 
 private:
 	std::shared_ptr<VertexArray> m_VAO = nullptr;
