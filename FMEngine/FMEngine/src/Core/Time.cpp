@@ -4,5 +4,5 @@
 
 float Time::CurTime()
 {
-	return glfwGetTime();
+	return (float)glfwGetTime();
 }

@@ -10,7 +10,6 @@
 #include "src/Events/KeyboardEvents.h"
 #include "src/Events/WindowEvents.h"
 
-
 // Render
 #include "src/Render/Renderer.h"
 #include "src/Render/RenderCommand.h"
@@ -19,9 +18,11 @@
 #include "src/Render/Shader.h"
 #include "src/Render/FrameBuffer.h"
 
-#include "src/Render/CameraController.h"
+// Scene
+#include "src/Scene/CameraController.h"
+#include "src/Scene/MVCamera.h"
+#include "src/Scene/MVCameraController.h"
 #include "external/glm/glm/gtc/matrix_transform.hpp"
-
 
 // Utility
 #include "src/Core/Time.h"
