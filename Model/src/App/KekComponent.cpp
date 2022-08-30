@@ -5,14 +5,14 @@ KekComponent::KekComponent()
 {
 	RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1 });
 
-	m_Camera.reset(new MVCamera({ 1.09159, 0.721172, -0.511793 }, { 0.0378288, 0.393665, -0.0402839 }));
-	m_Camera->SetPos({ 0,0,2 });
+	m_Camera.reset(new MVCamera({ 0,0,0 }, 2.87645, -4.19934, 0.5));
 
 	m_CamControll.reset(new MVCameraController(std::dynamic_pointer_cast<MVCamera>(m_Camera)));
 	m_CamControll->SetTranslationSpeed(0.1);
 
 	// model loading
-	m_Model.reset(new Model("assets/models/MS3D/jeep1.ms3d"));
+	//m_Model.reset(new Model("assets/models/MS3D/jeep1.ms3d"));
+	m_Model.reset(new Model("assets/sample/source/CCars09-10-sport.3ds"));
 
 	m_FrameBuffer.reset(FrameBuffer::Create(512, 512));
 
@@ -30,6 +30,7 @@ void KekComponent::OnGuiRender()
 	ImGui::DockSpaceOverViewport();
 	ImGui::Begin("Viewport");
 	bool focus = ImGui::IsWindowFocused();
+	bool hover = ImGui::IsWindowHovered();
 
 	// Yellow is content region min/max
 	ImVec2 vMin = ImGui::GetWindowContentRegionMin();
@@ -51,10 +52,10 @@ void KekComponent::OnGuiRender()
 	RenderCommand::Clear();
 
 	m_Camera->SetView(viewportSize.x, viewportSize.y);
-
+	m_Camera->UpdateVPMatrix();
 	float timestep = Time::CurTime() - m_Time;
 	m_Time = Time::CurTime();
-	m_CamControll->SetActive(focus);
+	m_CamControll->SetActive(focus && hover);
 	m_CamControll->Update(timestep);
 
 	Renderer::BeginScene(m_Camera);

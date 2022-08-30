@@ -217,6 +217,7 @@
     <ClInclude Include="FMEngine\src\Scene\Mesh.h" />
     <ClInclude Include="FMEngine\src\Scene\Model.h" />
     <ClInclude Include="FMEngine\src\Scene\MVCamera.h" />
+    <ClInclude Include="MVCameraController.h" />
     <ClInclude Include="FMEngine\src\Scene\MVCameraController.h" />
     <ClInclude Include="src\Events\EventListener.h" />
     <ClInclude Include="FMEngine\src\Events\EventManager.h" />

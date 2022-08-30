@@ -6,7 +6,7 @@ class MVCamera : public Camera
 public:
 	MVCamera() = default;
 	virtual ~MVCamera() = default;
-	MVCamera(const glm::vec3& position, const glm::vec3& terget);
+	MVCamera(const glm::vec3& target, float_t yaw, float_t pitch, float_t dist);
 
 	virtual void UpdateVPMatrix() override;
 

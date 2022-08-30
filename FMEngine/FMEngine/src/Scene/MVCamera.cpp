@@ -1,20 +1,15 @@
 #include "MVCamera.h"
 #include "external/glm/glm/gtx/quaternion.hpp"
 
-MVCamera::MVCamera(const glm::vec3& position, const glm::vec3& target)
+MVCamera::MVCamera(const glm::vec3& target, float_t yaw, float_t pitch, float_t dist)
 {
-	m_Pos = position;
 	m_FocalPoint = target;
+	m_Distance = dist;
 
-	glm::vec3 front = glm::normalize(position - target);
+	m_Yaw = yaw;
+	m_Pitch = pitch;
 
-	m_Pitch = glm::asin(front.y);
-	m_Yaw = glm::asin(front.z / glm::cos(m_Pitch));
-
-	glm::quat orientation = GetOrientation();
-	m_ViewMatrix = glm::translate(glm::mat4(1.0f), m_Pos) * glm::toMat4(orientation);
-	m_ViewMatrix = glm::inverse(m_ViewMatrix);
-
+	UpdateVPMatrix();
 }
 
 void MVCamera::UpdateProjection()

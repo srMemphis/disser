@@ -62,22 +62,22 @@ void MVCameraController::Update(float_t timestep)
 		{
 			m_LastKey = m_KeyPressOrder[1];
 		}
-		
+
 		// do stuff
 		switch (m_LastKey)
-		{	
-			case MouseCode::LEFT: // rotate
-			{
-				m_Camera->SetPitch(m_Camera->GetPitch() + dmousepose.x * m_RotationSpeed.x);
-				m_Camera->SetYaw(m_Camera->GetYaw() + dmousepose.y * m_RotationSpeed.y);
-				break;
-			}
-			case MouseCode::RIGHT: // move
-			{	
-				m_Camera->SetFocalPoint(m_Camera->GetFocalPoint() + m_Camera->GetRightDirection() * dmousepose.x * m_TranslationSpeed * m_Camera->GetDistance());
-				m_Camera->SetFocalPoint(m_Camera->GetFocalPoint() + m_Camera->GetUpDirection() * dmousepose.y * m_TranslationSpeed * m_Camera->GetDistance());
-				break;
-			}
+		{
+		case MouseCode::LEFT: // rotate
+		{
+			m_Camera->SetPitch(m_Camera->GetPitch() + dmousepose.x * m_RotationSpeed.x);
+			m_Camera->SetYaw(m_Camera->GetYaw() + dmousepose.y * m_RotationSpeed.y);
+			break;
+		}
+		case MouseCode::RIGHT: // move
+		{
+			m_Camera->SetFocalPoint(m_Camera->GetFocalPoint() - m_Camera->GetRightDirection() * dmousepose.x * m_TranslationSpeed * m_Camera->GetDistance());
+			m_Camera->SetFocalPoint(m_Camera->GetFocalPoint() - m_Camera->GetUpDirection() * dmousepose.y * m_TranslationSpeed * m_Camera->GetDistance());
+			break;
+		}
 		}
 
 		// zoom
@@ -92,6 +92,7 @@ void MVCameraController::Update(float_t timestep)
 
 		std::cout << " Position: " << m_Camera->GetPosition().x << ", " << m_Camera->GetPosition().y << ", " << m_Camera->GetPosition().z << ";\n";
 		std::cout << " Target: " << m_Camera->GetFocalPoint().x << ", " << m_Camera->GetFocalPoint().y << ", " << m_Camera->GetFocalPoint().z << ";\n";
+		std::cout << "Yaw: " << m_Camera->GetYaw() << "; Pitch: " << m_Camera->GetPitch() << ";\n";
 		std::cout << "Distance: " << m_Camera->GetDistance() << ";\n\n";
 
 		// update
@@ -101,7 +102,7 @@ void MVCameraController::Update(float_t timestep)
 }
 
 void MVCameraController::OnMouseClick(Event& event)
-{	
+{
 	if (m_Active)
 	{
 		MousePressEvent& MCEvent = static_cast<MousePressEvent&>(event);
