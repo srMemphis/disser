@@ -22,7 +22,7 @@ public:
 	void Update(float_t timestep);
 
 private:
-	float_t m_ZoomSpeed{ 0.1f };
+	float_t m_ZoomSpeed{ 0.05f };
 	float_t m_TranslationSpeed{ 0.1f };
 	glm::vec2 m_RotationSpeed{ 1.f, 1.f };   // Yaw, Pitch
 

@@ -68,8 +68,8 @@ void MVCameraController::Update(float_t timestep)
 		{
 		case MouseCode::LEFT: // rotate
 		{
-			m_Camera->SetPitch(m_Camera->GetPitch() + dmousepose.x * m_RotationSpeed.x);
-			m_Camera->SetYaw(m_Camera->GetYaw() + dmousepose.y * m_RotationSpeed.y);
+			m_Camera->SetPitch(m_Camera->GetPitch() - dmousepose.x * m_RotationSpeed.x);
+			m_Camera->SetYaw(m_Camera->GetYaw() - dmousepose.y * m_RotationSpeed.y);
 			break;
 		}
 		case MouseCode::RIGHT: // move
@@ -81,9 +81,9 @@ void MVCameraController::Update(float_t timestep)
 		}
 
 		// zoom
-		float_t dst = m_Camera->GetDistance() + m_ScrollOffset * m_ZoomSpeed;
+		float_t dst = m_Camera->GetDistance() * (1 + m_ScrollOffset * m_ZoomSpeed);
 		dst = dst < 0.1f ? 0.1f : dst;
-		m_Camera->SetDistance(m_Camera->GetDistance() + m_ScrollOffset * m_ZoomSpeed);
+		m_Camera->SetDistance(dst);
 		m_ScrollOffset = 0;
 
 
