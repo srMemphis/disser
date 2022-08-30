@@ -16,7 +16,9 @@ KekComponent::KekComponent()
 
 	m_FrameBuffer.reset(FrameBuffer::Create(512, 512));
 
-	m_Shader.reset(Shader::Create("Common", "assets/Shaders/Common.vert", "assets/Shaders/Common.frag"));
+	//m_Shader.reset(Shader::Create("Common", "assets/Shaders/Common.vert", "assets/Shaders/Common.frag"));
+	m_Shader.reset(Shader::Create("Diffuse", "assets/Shaders/Diffuse.vert", "assets/Shaders/Diffuse.frag"));
+
 	m_Time = Time::CurTime();
 
 }

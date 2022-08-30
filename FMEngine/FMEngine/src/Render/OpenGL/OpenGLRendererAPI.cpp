@@ -43,3 +43,15 @@ void OpenGLRendererAPI::SetLineWidth(float width)
 {
 	glLineWidth(width);
 }
+
+void OpenGLRendererAPI::SetPolygonFill(bool fill)
+{
+	if (fill)
+	{
+		glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+	}
+	else
+	{
+		glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+	}
+}

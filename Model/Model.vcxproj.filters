@@ -33,4 +33,10 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\Shaders\Diffuse.vert" />
+    <None Include="assets\Shaders\Common.vert" />
+    <None Include="assets\Shaders\Common.frag" />
+    <None Include="assets\Shaders\Diffuse.frag" />
+  </ItemGroup>
 </Project>
