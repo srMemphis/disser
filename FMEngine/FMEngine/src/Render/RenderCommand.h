@@ -45,7 +45,10 @@ public:
 		s_RendererAPI->SetPolygonFill(fill);
 	}
 
-
+	static void DepthTestEnable(bool enable)
+	{
+		s_RendererAPI->DepthTestEnable(enable);
+	}
 
 private:
 	static RendererAPI * s_RendererAPI;

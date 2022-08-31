@@ -199,6 +199,7 @@
     <ClInclude Include="FMEngine\FMEngine.h" />
     <ClInclude Include="FMEngine\external\glad\include\glad\glad.h" />
     <ClInclude Include="FMEngine\external\glad\include\KHR\khrplatform.h" />
+    <ClInclude Include="FMEngine\src\Render\OpenGL\GLDebugMessageCallback.h" />
     <ClInclude Include="FMEngine\src\Scene\CameraController.h" />
     <ClInclude Include="FMEngine\src\Render\FrameBuffer.h" />
     <ClInclude Include="FMEngine\src\Render\GraphicsContext.h" />

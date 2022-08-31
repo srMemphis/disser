@@ -18,4 +18,5 @@ public:
 	virtual void SetLineWidth(float width) override;
 
 	virtual void SetPolygonFill(bool fill) override;
+	virtual void DepthTestEnable(bool enable) override;
 };

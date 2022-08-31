@@ -161,6 +161,9 @@
     <ClInclude Include="FMEngine\src\Scene\MVCameraController.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="FMEngine\src\Render\OpenGL\GLDebugMessageCallback.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FMEngine\external\glad\src\glad.c">

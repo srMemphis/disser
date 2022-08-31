@@ -11,16 +11,20 @@ KekComponent::KekComponent()
 	m_CamControll->SetTranslationSpeed(0.1);
 
 	// model loading
-	//m_Model.reset(new Model("assets/models/MS3D/jeep1.ms3d"));
 	m_Model.reset(new Model("assets/sample/source/CCars09-10-sport.3ds"));
 
-	m_FrameBuffer.reset(FrameBuffer::Create(512, 512));
+	m_FrameBuffer.reset(FrameBuffer::Create(512, 512, false));
+	m_MSFrameBuffer.reset(FrameBuffer::Create(512, 512, true));
+	m_MSFrameBuffer->SetSamples(16);
 
 	//m_Shader.reset(Shader::Create("Common", "assets/Shaders/Common.vert", "assets/Shaders/Common.frag"));
 	m_Shader.reset(Shader::Create("Diffuse", "assets/Shaders/Diffuse.vert", "assets/Shaders/Diffuse.frag"));
 
-	m_Time = Time::CurTime();
+	m_Time = Time::CurTime(); 
 
+	RenderCommand::DepthTestEnable(true);
+	RenderCommand::SetPolygonFill(false);
+	RenderCommand::SetLineWidth(0.3);
 }
 
 KekComponent::~KekComponent()
@@ -44,13 +48,12 @@ void KekComponent::OnGuiRender()
 	vMax.y += ImGui::GetWindowPos().y;
 
 	ImGui::GetForegroundDrawList()->AddRect(vMin, vMax, IM_COL32(255, 255, 0, 255));
-
-
+ 
 	ImVec2 viewportSize = { vMax.x - vMin.x, vMax.y - vMin.y };
 
-
 	m_FrameBuffer->Resize((int32_t)viewportSize.x, (int32_t)viewportSize.y);
-	m_FrameBuffer->Bind();
+	m_MSFrameBuffer->Resize((int32_t)viewportSize.x, (int32_t)viewportSize.y);
+	m_MSFrameBuffer->Bind();
 	RenderCommand::Clear();
 
 	m_Camera->SetView(viewportSize.x, viewportSize.y);
@@ -68,9 +71,8 @@ void KekComponent::OnGuiRender()
 
 	Renderer::EndScene();
 
-
+	m_FrameBuffer->BlitFrom(m_MSFrameBuffer);
 	m_FrameBuffer->Unbind();
-
 
 	ImGui::Image((void*)m_FrameBuffer->GetTextureID(), ImVec2(viewportSize.x, viewportSize.y));
 	ImGui::End();

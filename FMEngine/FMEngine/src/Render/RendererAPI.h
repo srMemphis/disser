@@ -25,6 +25,7 @@ public:
 	virtual void SetLineWidth(float width) = 0;
 	
 	virtual void SetPolygonFill(bool fill) = 0;
+	virtual void DepthTestEnable(bool enable) = 0;
 
 	static API GetAPI() { return s_API; }
 	static RendererAPI* Create();

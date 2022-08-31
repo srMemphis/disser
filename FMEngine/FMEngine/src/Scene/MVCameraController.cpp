@@ -87,14 +87,11 @@ void MVCameraController::Update(float_t timestep)
 		m_ScrollOffset = 0;
 
 
-
-
-
-		std::cout << " Position: " << m_Camera->GetPosition().x << ", " << m_Camera->GetPosition().y << ", " << m_Camera->GetPosition().z << ";\n";
-		std::cout << " Target: " << m_Camera->GetFocalPoint().x << ", " << m_Camera->GetFocalPoint().y << ", " << m_Camera->GetFocalPoint().z << ";\n";
-		std::cout << "Yaw: " << m_Camera->GetYaw() << "; Pitch: " << m_Camera->GetPitch() << ";\n";
-		std::cout << "Distance: " << m_Camera->GetDistance() << ";\n\n";
-
+		//std::cout << " Position: " << m_Camera->GetPosition().x << ", " << m_Camera->GetPosition().y << ", " << m_Camera->GetPosition().z << ";\n";
+		//std::cout << " Target: " << m_Camera->GetFocalPoint().x << ", " << m_Camera->GetFocalPoint().y << ", " << m_Camera->GetFocalPoint().z << ";\n";
+		//std::cout << "Yaw: " << m_Camera->GetYaw() << "; Pitch: " << m_Camera->GetPitch() << ";\n";
+		//std::cout << "Distance: " << m_Camera->GetDistance() << ";\n\n";
+		
 		// update
 		m_Camera->UpdateVPMatrix();
 

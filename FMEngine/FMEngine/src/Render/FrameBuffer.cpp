@@ -2,12 +2,12 @@
 #include "Renderer.h"
 #include "OpenGL/OpenGLFrameBuffer.h"
 
-FrameBuffer* FrameBuffer::Create(int32_t width, int32_t height)
+FrameBuffer* FrameBuffer::Create(int32_t width, int32_t height, bool multisample)
 {   
 	switch (Renderer::GetAPI())
 	{
 	case(RendererAPI::API::None):		std::cerr << "ERROR: Render API is None!\n"; return nullptr;
-	case(RendererAPI::API::OpenGL):		return new OpenGLFrameBuffer(width, height);
+	case(RendererAPI::API::OpenGL):		return new OpenGLFrameBuffer(width, height, multisample);
 	default:							std::cerr << "ERROR: Render API is unknown!\n"; return nullptr;
 	}
 }

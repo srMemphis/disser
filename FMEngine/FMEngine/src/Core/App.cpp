@@ -1,9 +1,8 @@
 #include "src/Core/App.h"
-
+#include "src/Render/Renderer.h"
 
 #include <iostream>
 #include <exception>
-#include "external/glad/include/glad/glad.h"
 
 App* App::s_Instance = nullptr;
 
@@ -24,7 +23,7 @@ App::App()
 	std::shared_ptr<EventListener> OnWindowCloseListener = std::make_shared<EventListener>(std::bind(&App::OnWindowClose, this, std::placeholders::_1));
 	m_EventManager.AddListener(EventType::WindowClose, OnWindowCloseListener);
 
-
+	Renderer::Init();
 }
 
 App::~App()
@@ -39,16 +38,11 @@ void App::Run()
 		// polling and procecing events
 		m_EventManager.ProcessEvents();
 
-
-
-
 		// rendering gui
 		m_gui.Begin();
 		for (auto component : m_ComponentList)
 			component->OnGuiRender();
 		m_gui.End();
-
-
 
 		m_window->Update();
 
