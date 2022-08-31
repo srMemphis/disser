@@ -65,6 +65,34 @@ void OpenGLFrameBuffer::Invalidate()
     glGenFramebuffers(1, &m_BufferID);
     glBindFramebuffer(GL_FRAMEBUFFER, m_BufferID);
 
+#ifdef multisample // not working 
+    // texture attachment
+    glGenTextures(1, &m_TextureID);
+    glBindTexture(GL_TEXTURE_2D_MULTISAMPLE, m_TextureID);
+    glTexImage2DMultisample(GL_TEXTURE_2D_MULTISAMPLE, 4, GL_RGB, m_Width, m_Height, GL_TRUE);
+    glTexParameteri(GL_TEXTURE_2D_MULTISAMPLE, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D_MULTISAMPLE, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    // glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
+    // glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+    // glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+    glBindTexture(GL_TEXTURE_2D_MULTISAMPLE, 0);
+
+    glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D_MULTISAMPLE, m_TextureID, 0);
+
+    // depth stencil buffer attachment
+    glGenRenderbuffers(1, &m_RBO);
+    glBindRenderbuffer(GL_RENDERBUFFER, m_RBO);
+    glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8, m_Width, m_Height);
+    glBindRenderbuffer(GL_RENDERBUFFER, 0);
+
+    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_STENCIL_ATTACHMENT, GL_RENDERBUFFER, m_RBO);
+
+    // chek status
+    assert(glCheckFramebufferStatus(GL_FRAMEBUFFER) == GL_FRAMEBUFFER_COMPLETE && "Failed to create FrameBuffer");
+
+    // unbind frame buffer
+    glBindFramebuffer(GL_FRAMEBUFFER, 0);
+#else
     // texture attachment
     glGenTextures(1, &m_TextureID);
     glBindTexture(GL_TEXTURE_2D, m_TextureID);
@@ -91,4 +119,7 @@ void OpenGLFrameBuffer::Invalidate()
 
     // unbind frame buffer
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
+
+#endif
+
 }

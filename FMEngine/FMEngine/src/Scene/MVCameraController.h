@@ -22,14 +22,14 @@ public:
 	void Update(float_t timestep);
 
 private:
-	float_t m_ZoomSpeed{ 0.1f };
+	float_t m_ZoomSpeed{ 0.05f };
 	float_t m_TranslationSpeed{ 0.1f };
 	glm::vec2 m_RotationSpeed{ 1.f, 1.f };   // Yaw, Pitch
 
 	glm::vec2 m_LastMousePos{ 0.f, 0.f };
-	float_t m_ScrollOffset{0};
+	float_t m_ScrollOffset{ 0 };
 
-	std::array<MouseCode,2> m_KeyPressOrder{ MouseCode::LEFT, MouseCode::RIGHT};
+	std::array<MouseCode, 2> m_KeyPressOrder{ MouseCode::LEFT, MouseCode::RIGHT };
 	MouseCode m_LastKey{ MouseCode::UNKNOWN };
 
 	bool m_Active = false;

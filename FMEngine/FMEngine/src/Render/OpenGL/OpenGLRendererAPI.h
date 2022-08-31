@@ -16,4 +16,6 @@ public:
 	virtual void DrawLines(const std::shared_ptr<VertexArray>& vertexArray) override;
 
 	virtual void SetLineWidth(float width) override;
+
+	virtual void SetPolygonFill(bool fill) override;
 };

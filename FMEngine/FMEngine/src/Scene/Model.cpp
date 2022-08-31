@@ -68,7 +68,7 @@ void Model::ProcessNode(aiNode* node, const aiScene* scene, const glm::mat4& par
 
 Mesh Model::ProcessMesh(aiMesh* mesh, const aiScene* scene, const glm::mat4& nodeTransform)
 {
-	Mesh outputMesh;
+	std::unique_ptr<Mesh> outputMesh = std::make_unique<Mesh>();
 
 	// vertex
 	for (uint32_t i = 0; i < mesh->mNumVertices; i++)
@@ -83,7 +83,7 @@ Mesh Model::ProcessMesh(aiMesh* mesh, const aiScene* scene, const glm::mat4& nod
 			outputVertex.tex = {mesh->mTextureCoords[0][i].x, mesh->mTextureCoords[0][i].y};
 		}
 
-		outputMesh.AddVertex(outputVertex);
+		outputMesh->AddVertex(outputVertex);
 	}
 
 	// index
@@ -95,17 +95,17 @@ Mesh Model::ProcessMesh(aiMesh* mesh, const aiScene* scene, const glm::mat4& nod
 			mesh->mFaces[i].mIndices[2],
 		};
 
-		outputMesh.AddFace(outputFace);
+		outputMesh->AddFace(outputFace);
 	}
 
 	// TODO: load textures
 	// texture code goes here! haha, never
 
 	// transform;
-	outputMesh.SetTransform(nodeTransform);
+	outputMesh->SetTransform(nodeTransform);
 
 	// Generate render buffers
-	outputMesh.GenerateRenderBuffers();
+	outputMesh->GenerateRenderBuffers();
 
-	return outputMesh;
+	return *outputMesh;
 }

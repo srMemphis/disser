@@ -155,6 +155,9 @@
     <ClInclude Include="FMEngine\src\Scene\Camera.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="MVCameraController.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
     <ClInclude Include="FMEngine\src\Scene\MVCameraController.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>

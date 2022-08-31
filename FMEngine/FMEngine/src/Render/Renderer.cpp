@@ -42,6 +42,7 @@ void Renderer::Submit(const std::shared_ptr<Shader>& shader, const std::shared_p
 	shader->Bind();
 	shader->SetMat4("u_ViewProjection", s_SceneData->ViewProjectionMatrix);
 	
+	//RenderCommand::SetPolygonFill(false);
 	for (const Mesh& mesh : model->GetMeshes())
 	{
 		shader->SetMat4("u_Transform", mesh.GetTransform() * transform);

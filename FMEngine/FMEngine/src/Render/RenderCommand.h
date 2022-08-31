@@ -40,6 +40,13 @@ public:
 		s_RendererAPI->SetLineWidth(width);
 	}
 
+	static void SetPolygonFill(bool fill)
+	{
+		s_RendererAPI->SetPolygonFill(fill);
+	}
+
+
+
 private:
 	static RendererAPI * s_RendererAPI;
 };
