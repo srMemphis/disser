@@ -30,9 +30,9 @@ public:
 		s_RendererAPI->DrawIndexed(vertexArray);
 	}
 
-	static void DrawLines(const std::shared_ptr<VertexArray>& vertexArray)
+	static void DrawLines(const std::shared_ptr<VertexArray>& vertexArray, uint32_t count)
 	{
-		s_RendererAPI->DrawLines(vertexArray);
+		s_RendererAPI->DrawLines(vertexArray, count);
 	}
 
 	static void SetLineWidth(float width)
@@ -45,9 +45,14 @@ public:
 		s_RendererAPI->SetPolygonFill(fill);
 	}
 
-	static void DepthTestEnable(bool enable)
+	static void EnableDepthTest(bool enable)
 	{
-		s_RendererAPI->DepthTestEnable(enable);
+		s_RendererAPI->EnableDepthTest(enable);
+	}
+
+	static void EnableBlend(bool enable)
+	{
+		s_RendererAPI->EnableBlend(enable);
 	}
 
 private:

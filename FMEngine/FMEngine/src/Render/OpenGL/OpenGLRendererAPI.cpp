@@ -45,11 +45,12 @@ void OpenGLRendererAPI::DrawIndexed(const std::shared_ptr<VertexArray>& vertexAr
 	glDrawElements(GL_TRIANGLES, count, GL_UNSIGNED_INT, nullptr);
 }
 
-void OpenGLRendererAPI::DrawLines(const std::shared_ptr<VertexArray>& vertexArray)
+void OpenGLRendererAPI::DrawLines(const std::shared_ptr<VertexArray>& vertexArray, uint32_t count)
 {
 	vertexArray->Bind();
-	uint32_t count = vertexArray->GetIndexBuffer()->GetCount();
-	glDrawArrays(GL_LINES, 0, count);
+	glDrawArrays(GL_LINE_STRIP, 0, count);
+				//GL_LINE_STRIP
+				//GL_LINES
 }
 
 void OpenGLRendererAPI::SetLineWidth(float width)
@@ -69,7 +70,19 @@ void OpenGLRendererAPI::SetPolygonFill(bool fill)
 	}
 }
 
-void OpenGLRendererAPI::DepthTestEnable(bool enable)
+void OpenGLRendererAPI::EnableBlend(bool enable)
+{
+	if (enable)
+	{
+		glEnable(GL_BLEND);
+	}
+	else
+	{
+		glDisable(GL_BLEND);
+	}
+}
+
+void OpenGLRendererAPI::EnableDepthTest(bool enable)
 {	
 	if (enable)
 	{

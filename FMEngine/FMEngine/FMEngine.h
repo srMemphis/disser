@@ -19,6 +19,8 @@
 #include "src/Render/FrameBuffer.h"
 
 // Scene
+#include "src/Scene/Model.h"
+#include "src/Scene/Line.h"
 #include "src/Scene/CameraController.h"
 #include "src/Scene/MVCamera.h"
 #include "src/Scene/MVCameraController.h"

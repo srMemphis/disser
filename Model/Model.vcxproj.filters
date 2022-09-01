@@ -38,5 +38,7 @@
     <None Include="assets\Shaders\Common.vert" />
     <None Include="assets\Shaders\Common.frag" />
     <None Include="assets\Shaders\Diffuse.frag" />
+    <None Include="assets\Shaders\Line.vert" />
+    <None Include="assets\Shaders\Line.frag" />
   </ItemGroup>
 </Project>

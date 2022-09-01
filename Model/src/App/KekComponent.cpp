@@ -12,19 +12,26 @@ KekComponent::KekComponent()
 
 	// model loading
 	m_Model.reset(new Model("assets/sample/source/CCars09-10-sport.3ds"));
+	m_Line.reset(new Line(std::vector<glm::vec3>{ glm::vec3{0,0,0}, glm::vec3{10, 10, 10} }, { 0.7, 0.2, 0.2, 1 }));
+	m_Line->GenerateRenderBuffers();
+
+
+
 
 	m_FrameBuffer.reset(FrameBuffer::Create(512, 512, false));
 	m_MSFrameBuffer.reset(FrameBuffer::Create(512, 512, true));
-	m_MSFrameBuffer->SetSamples(16);
+	m_MSFrameBuffer->SetSamples(4);
 
 	//m_Shader.reset(Shader::Create("Common", "assets/Shaders/Common.vert", "assets/Shaders/Common.frag"));
 	m_Shader.reset(Shader::Create("Diffuse", "assets/Shaders/Diffuse.vert", "assets/Shaders/Diffuse.frag"));
+	m_LineShader.reset(Shader::Create("Line", "assets/Shaders/Line.vert", "assets/Shaders/Line.frag"));
 
 	m_Time = Time::CurTime(); 
 
-	RenderCommand::DepthTestEnable(true);
-	RenderCommand::SetPolygonFill(false);
-	RenderCommand::SetLineWidth(0.3);
+	RenderCommand::EnableBlend(true);
+	RenderCommand::EnableDepthTest(true);
+	RenderCommand::SetPolygonFill(true);
+	RenderCommand::SetLineWidth(3);
 }
 
 KekComponent::~KekComponent()
@@ -68,6 +75,8 @@ void KekComponent::OnGuiRender()
 	glm::mat4 transform = glm::translate(glm::mat4(1), glm::vec3(0, 0, 0));
 	transform = glm::scale(transform, glm::vec3(0.1, 0.1, 0.1));
 	Renderer::Submit(m_Shader, m_Model, transform);
+	Renderer::SubmitLine(m_LineShader, m_Line, transform);
+
 
 	Renderer::EndScene();
 

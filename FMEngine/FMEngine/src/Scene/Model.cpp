@@ -33,10 +33,12 @@ Model::Model(const std::string& srcPath)
 		std::cerr << "Error loading model at" + srcPath + "\n" + importer.GetErrorString();
 		assert(false);
 	}
+	else
+	{
+		m_Dir = srcPath.substr(0, srcPath.find_last_of("/"));
 
-	m_Dir = srcPath.substr(0, srcPath.find_last_of("/"));
-
-	ProcessNode(scene->mRootNode, scene, glm::mat4(1));
+		ProcessNode(scene->mRootNode, scene, glm::mat4(1));
+	}
 }
 
 Model::~Model()

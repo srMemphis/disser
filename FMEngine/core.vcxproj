@@ -215,6 +215,7 @@
     <ClInclude Include="FMEngine\src\Render\VertexArray.h" />
     <ClInclude Include="FMEngine\src\Scene\Camera.h" />
     <ClInclude Include="FMEngine\src\Scene\FPSCamera.h" />
+    <ClInclude Include="FMEngine\src\Scene\Line.h" />
     <ClInclude Include="FMEngine\src\Scene\Mesh.h" />
     <ClInclude Include="FMEngine\src\Scene\Model.h" />
     <ClInclude Include="FMEngine\src\Scene\MVCamera.h" />
@@ -261,6 +262,7 @@
     <ClCompile Include="FMEngine\src\Render\OpenGL\OpenGLContext.cpp" />
     <ClCompile Include="FMEngine\src\Render\OpenGL\OpenGLShader.cpp" />
     <ClCompile Include="FMEngine\src\Render\OpenGL\OpenGLRendererAPI.cpp" />
+    <ClCompile Include="FMEngine\src\Scene\Line.cpp" />
     <ClCompile Include="FMEngine\src\Scene\Mesh.cpp" />
     <ClCompile Include="FMEngine\src\Scene\Model.cpp" />
     <ClCompile Include="FMEngine\src\Scene\MVCamera.cpp" />

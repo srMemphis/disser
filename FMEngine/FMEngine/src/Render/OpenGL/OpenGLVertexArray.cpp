@@ -114,10 +114,13 @@ void OpenGLVertexArray::AddVertexBuffer(const std::shared_ptr<VertexBuffer>& ver
 }
 
 void OpenGLVertexArray::SetIndexBuffer(const std::shared_ptr<IndexBuffer>& indexBuffer)
-{
-	glBindVertexArray(m_ArrayID);
-	indexBuffer->Bind();
-	m_IndexBuffer = indexBuffer;
+{	
+	if (indexBuffer)
+	{
+		glBindVertexArray(m_ArrayID);
+		indexBuffer->Bind();
+		m_IndexBuffer = indexBuffer;
+	}
 }
 
 const std::vector<std::shared_ptr<VertexBuffer>>& OpenGLVertexArray::GetVertexBuffers() const

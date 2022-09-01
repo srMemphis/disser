@@ -15,9 +15,9 @@ struct Vertex
 // Vertex indices
 struct Face
 {
-	uint32_t vert1;
-	uint32_t vert2;
-	uint32_t vert3;
+	uint32_t vert1{ 0 };
+	uint32_t vert2{ 0 };
+	uint32_t vert3{ 0 };
 };
 
 class Mesh
@@ -37,7 +37,7 @@ public:
 private:
 	std::vector<Face> m_Faces;
 	std::vector<Vertex> m_Vertices;
-	glm::mat4 m_Transform;
+	glm::mat4 m_Transform{1};
 
 private:
 	std::shared_ptr<VertexArray> m_VAO = nullptr;

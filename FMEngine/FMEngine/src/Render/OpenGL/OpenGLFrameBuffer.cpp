@@ -73,6 +73,7 @@ uint32_t OpenGLFrameBuffer::GetHeight()
 void OpenGLFrameBuffer::SetSamples(uint8_t samples)
 {
     m_Samples = samples;
+    Invalidate();
 }
 
 void OpenGLFrameBuffer::Invalidate()
