@@ -11,3 +11,4 @@ It was supposed to be a program for simulating the propagation of an electron be
 >- [glm](https://github.com/g-truc/glm)  
 >- [Dear ImGui](https://github.com/ocornut/imgui)
 >- [assimp](https://github.com/assimp/assimp)  
+>- [Eigen](https://gitlab.com/libeigen/eigen)
