@@ -13,9 +13,11 @@ public:
 	virtual void Clear() override;
 
 	virtual void DrawIndexed(const std::shared_ptr<VertexArray>& vertexArray) override;
-	virtual void DrawLines(const std::shared_ptr<VertexArray>& vertexArray) override;
+	virtual void DrawLines(const std::shared_ptr<VertexArray>& vertexArray, uint32_t count) override;
 
 	virtual void SetLineWidth(float width) override;
 
 	virtual void SetPolygonFill(bool fill) override;
+	virtual void EnableDepthTest(bool enable) override;
+	virtual void EnableBlend(bool enable) override;
 };

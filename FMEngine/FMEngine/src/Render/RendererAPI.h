@@ -20,11 +20,13 @@ public:
 	virtual void Clear() = 0;
 
 	virtual void DrawIndexed(const std::shared_ptr<VertexArray>& vertexArray) = 0;
-	virtual void DrawLines(const std::shared_ptr<VertexArray>& vertexArray) = 0;
+	virtual void DrawLines(const std::shared_ptr<VertexArray>& vertexArraym, uint32_t count) = 0;
 
 	virtual void SetLineWidth(float width) = 0;
 	
 	virtual void SetPolygonFill(bool fill) = 0;
+	virtual void EnableDepthTest(bool enable) = 0;
+	virtual void EnableBlend(bool enable) = 0;
 
 	static API GetAPI() { return s_API; }
 	static RendererAPI* Create();
