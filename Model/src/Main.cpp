@@ -16,26 +16,24 @@ double Run_Eigen(int, int, Eigen::MatrixXd &A, Eigen::MatrixXd &B, int);
 int main()
 {
 
-    const int N = 1000000;
-    const int iterations = 10;
+    //const int N = 1000000;
+    //const int iterations = 10;
 
-    for (int M = 2; M <= 16; M++) {
-        Eigen::MatrixXd A(N, M);
-        Eigen::MatrixXd B(N, 1);
+    //for (int M = 2; M <= 16; M++) {
+    //    Eigen::MatrixXd A(N, M);
+    //    Eigen::MatrixXd B(N, 1);
 
-        for (size_t i = 0; i < A.size(); i++) {
-            A(i) = rand() / (1.0 + RAND_MAX);
-        }
+    //    for (size_t i = 0; i < A.size(); i++) {
+    //        A(i) = rand() / (1.0 + RAND_MAX);
+    //    }
 
-        // Perturb B
-        for (size_t i = 0; i < B.size(); i++) {
-            B(i) += -1.0 + 2 * rand() / (1.0 + RAND_MAX);
-        }
+    //    // Perturb B
+    //    for (size_t i = 0; i < B.size(); i++) {
+    //        B(i) += -1.0 + 2 * rand() / (1.0 + RAND_MAX);
+    //    }
 
-        cout << "Matrix size: " << M * N << " iterations: " << iterations << " runtime: " << Run_Eigen(N, M, A, B, iterations) << " seconds" << endl;
-    }
-
-    return 0;
+    //    cout << "Matrix size: " << M * N << " iterations: " << iterations << " runtime: " << Run_Eigen(N, M, A, B, iterations) << " seconds" << endl;
+    //}
 
 
 
@@ -44,11 +42,14 @@ int main()
 
 
 
-	/*
+
+	
 	MyApp myApp;
 	myApp.Run();
-	return 0;
-	*/
+
+	
+
+    return 0;
 }
 
 
