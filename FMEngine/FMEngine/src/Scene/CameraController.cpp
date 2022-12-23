@@ -1,7 +1,6 @@
+#include "fmepch.h"
 #include "CameraController.h"
 #include "src/Events/KeyboardEvents.h"
-#include <algorithm>
-#include <iostream>
 
 // square root of 1/2 
 const float CameraController::SQRT05 = 0.70710678f;

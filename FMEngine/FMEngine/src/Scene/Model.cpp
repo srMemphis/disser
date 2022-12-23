@@ -1,11 +1,10 @@
+#include "fmepch.h"
 #include "Model.h"
 
 #include "assimp/Importer.hpp"
 #include "assimp/scene.h"
 #include "assimp/postprocess.h"
 
-#include <cassert>
-#include <iostream>
 
 glm::mat4 aiMatrix4x4ToGlm(const aiMatrix4x4* from)
 {

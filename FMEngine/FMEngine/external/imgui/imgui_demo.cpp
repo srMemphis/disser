@@ -4376,7 +4376,7 @@ static void ShowDemoWindowTables()
                     for (int column = 0; column < 3; column++)
                     {
                         ImGui::TableSetColumnIndex(column);
-                        ImGui::Text("Hello %d,%d", column, row);
+                        ImGui::Text("Hellooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo %d,%d", column, row);
                     }
                 }
             }

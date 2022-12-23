@@ -1,3 +1,4 @@
+#include "fmepch.h"
 #include "Mesh.h"
 
 Mesh::~Mesh()

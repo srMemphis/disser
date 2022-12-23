@@ -24,7 +24,7 @@
 // REQUIREMENTS: OpenGL version with the KHR_debug extension available.
 
 #include <glad/glad.h>
-#include <string>
+#include "fmepch.h"
 
 
 // Callback function for printing debug statements
@@ -124,7 +124,12 @@ void APIENTRY GLDebugMessageCallback(GLenum source, GLenum type, GLuint id,
     
     if (_severity != "NOTIFICATION")
     {
-        printf("%d: %s of %s severity, raised from %s: %s\n",
+        auto errString = std::format("{}: {} of {} severity, raised from {}: {}\n",
             id, _type.c_str(), _severity.c_str(), _source.c_str(), msg);
+
+        FME_LOG_DEBUG(errString.c_str());
+
+        //printf("%d: %s of %s severity, raised from %s: %s\n",
+        //    id, _type.c_str(), _severity.c_str(), _source.c_str(), msg);
     }
 }

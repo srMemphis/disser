@@ -1,8 +1,5 @@
+#include "fmepch.h"
 #include "src/Core/Window.h"
-
-#include <iostream>
-#include <memory>
-#include <functional>
 
 #include "src/Render/OpenGL/OpenGLContext.h"
 #include "external/GLFW/include/GLFW/glfw3.h"
@@ -62,6 +59,7 @@ void Window::InitGLFW()
 	if (!glfwInit())
 	{
 		fprintf(stderr, "Failed to initialize GLFW\n");
+		FME_LOG_ERROR("Failed to initialize GLFW");
 	}
 }
 
@@ -75,6 +73,7 @@ void Window::Create()
 	m_GLFWwindow = glfwCreateWindow(m_Width, m_Hight, m_Title.c_str(), NULL, NULL);
 	if (m_GLFWwindow == NULL) {
 		fprintf(stderr, "Failed to open GLFW window\n");
+		FME_LOG_ERROR("Failed to open GLFW window");
 	}
 }
 

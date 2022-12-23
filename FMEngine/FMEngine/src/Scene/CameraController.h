@@ -1,10 +1,7 @@
+#include "fmepch.h"
 #include "src/Scene/FPSCamera.h"
 #include "src/Events/InputPolling.h"
 #include "src/Events/EventManager.h"
-
-#include <list>
-#include <array>
-#include <memory>
 
 class CameraController
 {

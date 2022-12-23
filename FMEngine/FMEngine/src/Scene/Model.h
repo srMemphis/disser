@@ -1,8 +1,6 @@
 #pragma once
+#include "fmepch.h"
 #include "src/Scene/Mesh.h"
-
-#include <vector>
-#include <string>
 
 struct aiScene;
 struct aiNode;

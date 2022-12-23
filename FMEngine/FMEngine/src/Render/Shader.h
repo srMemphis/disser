@@ -1,7 +1,6 @@
 #pragma once
-#include <memory>
-#include <string>
-#include <unordered_map>
+#include "fmepch.h"
+
 #include "external/glm/glm/glm.hpp"
 
 class Shader

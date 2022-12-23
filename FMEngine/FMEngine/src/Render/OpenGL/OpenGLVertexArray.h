@@ -1,8 +1,8 @@
+#include "fmepch.h"
+
 #pragma once
 #include "src/Render/VertexArray.h"
 
-#include <memory>
-#include <vector>
 
 class OpenGLVertexArray : public VertexArray
 {

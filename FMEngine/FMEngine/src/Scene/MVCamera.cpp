@@ -1,3 +1,4 @@
+#include "fmepch.h"
 #include "MVCamera.h"
 #include "external/glm/glm/gtx/quaternion.hpp"
 

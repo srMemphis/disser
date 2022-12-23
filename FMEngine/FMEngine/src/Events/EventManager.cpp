@@ -1,3 +1,4 @@
+#include "fmepch.h"
 #include "src/Events/EventManager.h"
 
 void EventManager::ProcessEvents()

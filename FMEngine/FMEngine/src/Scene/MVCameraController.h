@@ -1,10 +1,8 @@
 #pragma once
+#include "fmepch.h"
 #include "src/Scene/MVCamera.h"
 #include "src/Events/InputPolling.h"
 #include "src/Events/EventManager.h"
-
-#include <array>
-#include <memory>
 
 class MVCameraController
 {

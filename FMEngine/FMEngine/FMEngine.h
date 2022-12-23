@@ -28,3 +28,4 @@
 
 // Utility
 #include "src/Core/Time.h"
+#include "src/Core/Logger.h"

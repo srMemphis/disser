@@ -1,3 +1,4 @@
+#include "fmepch.h"
 #include "Line.h"
 
 Line::Line()

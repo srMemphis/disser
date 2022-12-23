@@ -1,6 +1,7 @@
+#include "fmepch.h"
 #include "OpenGLVertexArray.h"
 #include "glad/glad.h"
-#include <cassert>
+
 
 static GLenum ShaderDataTypeToOpenGLBaseType(ShaderDataType type)
 {

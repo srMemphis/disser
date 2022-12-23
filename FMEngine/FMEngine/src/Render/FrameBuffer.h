@@ -1,6 +1,6 @@
 #pragma once
-#include <stdint.h>
-#include <memory>
+#include "fmepch.h"
+
 class FrameBuffer
 {
 public:

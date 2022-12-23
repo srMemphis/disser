@@ -1,14 +1,16 @@
+#include "fmepch.h"
 #include "OpenGLRendererAPI.h"
 #include <glad/glad.h>
-#include <iostream>
+
 #include "GLDebugMessageCallback.h"
 
 void OpenGLRendererAPI::Init()
-{
-	printf("OpenGL Info:\n");
-	printf("\tVendor: %s\n",  glGetString(GL_VENDOR));
-	printf("\tDevice: %s\n",  glGetString(GL_RENDERER));
-	printf("\tVersion: %s\n", glGetString(GL_VERSION));
+{	
+	auto OGLInfo = std::format("OpenGL Info:\n\tVendor: {}\n\tDevice: {}\n\tVersion: {}\n",
+		(const char*)glGetString(GL_VENDOR),
+		(const char*)glGetString(GL_RENDERER),
+		(const char*)glGetString(GL_VERSION));
+	FME_LOG_INFO(OGLInfo.c_str());
 
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	glEnable(GL_MULTISAMPLE);
@@ -19,8 +21,6 @@ void OpenGLRendererAPI::Init()
 
 	int maxSamples;
 	glGetIntegerv(GL_MAX_SAMPLES, &maxSamples);
-	printf("\tMax Samples: %i\n", maxSamples);
-
 }
 
 void OpenGLRendererAPI::SetViewport(uint32_t x, uint32_t y, uint32_t width, uint32_t height)

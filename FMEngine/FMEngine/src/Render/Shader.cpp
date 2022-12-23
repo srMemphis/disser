@@ -1,14 +1,13 @@
+#include "fmepch.h"
 #include "Shader.h"
 #include "Renderer.h"
 #include "OpenGL/OpenGLShader.h"
-
-#include <cassert>
 
 Shader* Shader::Create(const std::string& name, const std::string& vertexSrc, const std::string& fragmentSrc)
 {
 	switch (Renderer::GetAPI())
 	{
-	case RendererAPI::API::None:    std::cerr << "RendererAPI::None is currently not supported!"; return nullptr;
+	case RendererAPI::API::None:    FME_LOG_ERROR("RendererAPI::None is currently not supported!"); return nullptr;
 	case RendererAPI::API::OpenGL:  return new OpenGLShader(name, vertexSrc, fragmentSrc);
 	}
 
@@ -20,7 +19,7 @@ Shader* Shader::Create()
 {
 	switch (Renderer::GetAPI())
 	{
-	case RendererAPI::API::None:    std::cerr << "RendererAPI::None is currently not supported!"; return nullptr;
+	case RendererAPI::API::None:    FME_LOG_ERROR("RendererAPI::None is currently not supported!"); return nullptr;
 	case RendererAPI::API::OpenGL:  return new OpenGLShader();
 	}
 

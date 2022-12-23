@@ -1,10 +1,7 @@
-#include "OpenGLShader.h"
+#include "fmepch.h"
 
-#include <string>
-#include <sstream>
-#include <fstream>
-#include <vector>
-#include <iostream>
+#include "OpenGLShader.h"
+#include "src/Core/Logger.h"
 
 #include "glad/glad.h"
 #include <glm/gtc/type_ptr.hpp>
@@ -19,7 +16,8 @@ std::string read_from_file(const std::string& file_Path)
 		return buffer.str();
 	}
 
-	std::cerr << "Shader ERROR: Cannot open file: " << file_Path << '\n';
+	FME_LOG_ERROR(std::format("Shader ERROR: Cannot open file: {}", file_Path).c_str());
+	//std::cerr << "Shader ERROR: Cannot open file: " << file_Path << '\n';
 	return "";
 }
 
@@ -60,7 +58,9 @@ OpenGLShader::OpenGLShader(const std::string& name, const std::string& vertexSrc
 		// We don't need the shader anymore.
 		glDeleteShader(vertexShader);
 		
-		std::cerr << "Vertex shader compilation ERROR:\n";
+		
+		//std::cerr << "Vertex shader compilation ERROR:\n";
+		FME_LOG_ERROR("Vertex shader compilation ERROR:\n");
 		for (GLchar letter : infoLog)
 			std::cerr << letter;
 
@@ -93,7 +93,8 @@ OpenGLShader::OpenGLShader(const std::string& name, const std::string& vertexSrc
 		// Either of them. Don't leak shaders.
 		glDeleteShader(vertexShader);
 
-		std::cout << "Fragment shader compilation ERROR\n";
+		FME_LOG_ERROR("Fragment shader compilation ERROR\n");
+		//std::cout << "Fragment shader compilation ERROR\n";
 		for (GLchar letter : infoLog)
 			std::cout << letter << '\n';
 
@@ -130,7 +131,8 @@ OpenGLShader::OpenGLShader(const std::string& name, const std::string& vertexSrc
 		glDeleteShader(vertexShader);
 		glDeleteShader(fragmentShader);
 
-		std::cout << "Shader program linling ERROR:\n";
+		FME_LOG_ERROR("Shader program linling ERROR:\n");
+		//std::cout << "Shader program linling ERROR:\n";
 		for (GLchar letter : infoLog)
 			std::cout << letter;
 

@@ -1,8 +1,7 @@
+#include "fmepch.h"
 #include "MVCameraController.h"
 
 #include "src/Events/MouseEvents.h"
-#include <algorithm>
-#include <iostream>
 
 MVCameraController::MVCameraController(const std::shared_ptr<MVCamera>& camera)
 {

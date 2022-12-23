@@ -1,10 +1,8 @@
 #pragma once
+#include "fmepch.h"
 #include "external/glm/glm/glm.hpp"
 #include "src/Render/Buffer.h"
 #include "src/Render/VertexArray.h"
-
-#include <vector>
-#include <memory>
 
 class Line
 {

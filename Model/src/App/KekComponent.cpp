@@ -1,4 +1,6 @@
 #include "KekComponent.h"
+#include "Widgets/LogWidget.h"
+
 #include <iostream>
 
 KekComponent::KekComponent()
@@ -30,16 +32,24 @@ KekComponent::KekComponent()
 	RenderCommand::EnableDepthTest(true);
 	RenderCommand::SetPolygonFill(true);
 	RenderCommand::SetLineWidth(2);
+
+	FME_LOG_DEBUG("debug");
+	FME_LOG_ERROR("error");
+	FME_LOG_INFO("info");
+	FME_LOG_SUCESS("sucess");
+	FME_LOG_WARNING("warning");
+	FME_LOG_INFO("Billy Herrington or Aniki (his porn star name) [3] (born July 14, 1969 - died March 2, 2018) - an actor in gay porn and an inspirational figure. In Gachimuchi videos, he would be the protagonist in most of them. In memes, his scream is one of the most used.");
 }
 
 KekComponent::~KekComponent()
 {
+	std::cout << Logger::GetMessage(0) << std::endl;
 }
 
 void KekComponent::OnGuiRender()
 {
 	ImGui::DockSpaceOverViewport();
-
+	FME_LOG_INFO("Spam");
 	// settings window ===========================================================
 	ImGui::Begin("Settings");
 
@@ -62,7 +72,7 @@ void KekComponent::OnGuiRender()
 	// Yellow is content region min/max
 	ImVec2 vMin = ImGui::GetWindowContentRegionMin();
 	ImVec2 vMax = ImGui::GetWindowContentRegionMax();
-
+	
 	vMin.x += ImGui::GetWindowPos().x;
 	vMin.y += ImGui::GetWindowPos().y;
 	vMax.x += ImGui::GetWindowPos().x;
@@ -116,7 +126,7 @@ void KekComponent::OnGuiRender()
 	ImGui::End();
 	// ===========================================================================
 
-
-	//bool open = true;
-	//ImGui::ShowDemoWindow(&open);
+	bool open = true;
+	LogWidget::Draw(&open);
+	ImGui::ShowDemoWindow(&open);
 }

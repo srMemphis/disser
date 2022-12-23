@@ -1,10 +1,7 @@
 #pragma once
-#include "src/Events/Event.h"
+#include "fmepch.h"
 
-#include <vector>
-#include <map>
-#include <functional>
-#include <memory>
+#include "src/Events/Event.h"
 
 class EventListener;
 class EventManager

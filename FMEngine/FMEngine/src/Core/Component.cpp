@@ -1,8 +1,6 @@
+#include "fmepch.h"
 #include "src/Core/Component.h"
 #include "src/Events/EventManager.h"
-
-#include <memory>
-#include <functional>
 
 Component::Component()
 {

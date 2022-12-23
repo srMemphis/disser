@@ -1,7 +1,7 @@
 #pragma once
+#include "fmepch.h"
 
 #include "src/Core/Component.h"
-#include <vector>
 
 class ComponentList
 {

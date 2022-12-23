@@ -1,7 +1,5 @@
 #pragma once
-#include <iostream>
-#include <initializer_list>
-#include <vector>
+#include "fmepch.h"
 
 enum class ShaderDataType
 {
@@ -25,7 +23,7 @@ static uint32_t ShaderDataTypeSize(ShaderDataType type)
 	case ShaderDataType::Bool:     return 1;
 	}
 
-	std::cout << "ERROR: Unknown ShaderDataType!\n";
+	FME_LOG_ERROR("ERROR: Unknown ShaderDataType!\n");
 	return 0;
 }
 
@@ -61,7 +59,7 @@ struct BufferElement
 		case ShaderDataType::Bool:    return 1;
 		}
 
-		std::cout << "ERROR: Unknown ShaderDataType!\n";
+		FME_LOG_ERROR("ERROR: Unknown ShaderDataType!\n");
 		return 0;
 	}
 };

@@ -1,9 +1,8 @@
+#include "fmepch.h"
 #include "OpenGLContext.h"
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
-
-#include <iostream>
 
 OpenGLContext::OpenGLContext(GLFWwindow *windowHandle)
 	:m_WindowHandle(windowHandle)
@@ -21,6 +20,7 @@ void OpenGLContext::Init()
 	if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
 	{
 		fprintf(stderr, "Failed to initialize glad\n");
+		FME_LOG_ERROR("Failed to initialize glad\n");
 	}
 }
 

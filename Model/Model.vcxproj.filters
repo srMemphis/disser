@@ -32,6 +32,9 @@
     <ClInclude Include="src\App\KekComponent.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="src\App\Widgets\LogWidget.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\Shaders\Diffuse.vert" />

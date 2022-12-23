@@ -167,6 +167,18 @@
     <ClInclude Include="FMEngine\src\Scene\Line.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="FMEngine\src\Core\Logger.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="FMEngine\src\Core\Utils.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="FMEngine\fmepch.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="FMEngine\src\Events\KeyboardEvents.h">
+      <Filter>Исходные файлы</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FMEngine\external\glad\src\glad.c">
@@ -179,9 +191,6 @@
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="FMEngine\src\Render\Renderer.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="FMEngine\src\Events\KeyboardEvents.h">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="FMEngine\src\Events\EventManager.cpp">
@@ -280,9 +289,16 @@
     <ClCompile Include="FMEngine\src\Scene\Line.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="FMEngine\src\Core\Logger.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="FMEngine\fmepch.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="FMEngine\src\Render\OpenGL\Shaders\Common.vert" />
     <None Include="FMEngine\src\Render\OpenGL\Shaders\Common.frag" />
+    <None Include="cpp.hint" />
   </ItemGroup>
 </Project>

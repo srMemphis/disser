@@ -1,8 +1,7 @@
+#include "fmepch.h"
 #include "OpenGLFrameBuffer.h"
 
 #include <glad/glad.h>
-
-#include <cassert>
 
 OpenGLFrameBuffer::OpenGLFrameBuffer()
     : m_BufferID(0), m_TextureID(0),m_RBO(0), m_Width(1), m_Height(1), m_Multisample(0),

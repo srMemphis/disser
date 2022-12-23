@@ -1,17 +1,19 @@
+#include "fmepch.h"
 #include "src/Core/App.h"
 #include "src/Render/Renderer.h"
-
-#include <iostream>
-#include <exception>
 
 App* App::s_Instance = nullptr;
 
 App::App()
-{
+{	
+	Logger::Init();
+	FME_LOG_INFO("Application Startup");
+
 	// There should be only one App
 	if (s_Instance)
 	{
 		std::cerr << "ERROR: Application already exists!\n";
+		FME_LOG_ERROR("ERROR: Application already exists!");
 		std::terminate();
 	}
 	s_Instance = this;
